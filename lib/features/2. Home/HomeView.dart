@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:nvtours/common/NvAppBar.dart';
 import 'package:nvtours/constants/AppColors.dart';
+
 import '../../data/DrawerProvider.dart';
 
 class HomeView extends ConsumerStatefulWidget {
@@ -41,7 +42,7 @@ class _HomeViewState extends ConsumerState<HomeView> {
                 width: size.width,
                 decoration: BoxDecoration(
                   color: AppColors().cardColor,
-                  borderRadius: BorderRadius.circular(20),
+                  borderRadius: BorderRadius.circular(12),
                 ),
                 padding: const EdgeInsets.only(left: 30, right: 30, top: 20, bottom: 20),
                 child: Column(
@@ -65,7 +66,7 @@ class _HomeViewState extends ConsumerState<HomeView> {
                             width: size.width,
                             decoration: BoxDecoration(
                               color: Colors.white,
-                              borderRadius: BorderRadius.circular(12),
+                              borderRadius: BorderRadius.circular(10),
                             ),
                             padding: const EdgeInsets.only(top: 10, bottom: 10, right: 15, left: 15),
                             child: Row(
@@ -79,7 +80,7 @@ class _HomeViewState extends ConsumerState<HomeView> {
                                 ),
                                 ElevatedButton(
                                   onPressed: (){
-                                    context.go("/guide");
+                                    GoRouter.of(context).push("/guide");
                                   },
                                   child: const Text(
                                     "Visit",

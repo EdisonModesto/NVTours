@@ -1,5 +1,6 @@
 import 'package:go_router/go_router.dart';
 import 'package:nvtours/features/3.%20Tourist%20Guide/GuideView.dart';
+import 'package:nvtours/features/4.%20More%20Info/MoreView.dart';
 
 import '../features/1. SplashScreen/SplashScreen.dart';
 import '../features/2. Home/HomeView.dart';
@@ -19,6 +20,10 @@ class Routes{
       GoRoute(
         path: '/Guide',
         builder: (context, state) => const GuideView(),
+      ),
+      GoRoute(
+        path: '/Info',
+        builder: (context, state) => const MoreView(),
       ),
     ],
   );
