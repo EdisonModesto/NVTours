@@ -28,6 +28,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       body: Center(
         child: Image.asset("assets/images/NVToursLogo.png", scale: 1.3,),
