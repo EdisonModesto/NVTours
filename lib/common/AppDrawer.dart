@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:nvtours/viewmodel/SpotViewModel.dart';
 
 import '../viewmodel/MunicipalityViewModel.dart';
 
@@ -43,6 +45,13 @@ class _AppDrawerState extends ConsumerState<AppDrawer> {
                       itemCount: data.municipalities.length,
                       itemBuilder: (builder, index){
                         return ListTile(
+                          onTap: (){
+                            print(data.municipalities.values.elementAt(index).spots.keys);
+                            ref.read(spotProvider.notifier).refreshSpot(data.municipalities.values.elementAt(index).spots);
+                            Navigator.pop(context);
+                            context.go("/");
+                     //      GoRouter.of(context).push("/");
+                          },
                           title: Text(
                             data.municipalities.keys.elementAt(index),
                             style: GoogleFonts.poppins(

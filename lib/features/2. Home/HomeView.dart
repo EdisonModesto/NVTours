@@ -4,13 +4,18 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:nvtours/common/AppDrawer.dart';
 import 'package:nvtours/common/NvAppBar.dart';
 import 'package:nvtours/constants/AppColors.dart';
 import 'package:nvtours/viewmodel/MunicipalityViewModel.dart';
+import 'package:nvtours/viewmodel/SpotViewModel.dart';
 
+import '../../common/resultsSheet.dart';
 import '../../data/DrawerProvider.dart';
 import '../../model/MunicipalityModel.dart';
+
+var values = List.filled(15, false);
 
 class HomeView extends ConsumerStatefulWidget {
   const HomeView({
@@ -19,321 +24,436 @@ class HomeView extends ConsumerStatefulWidget {
 
   @override
   ConsumerState createState() => _HomeViewState();
-}
+}class _HomeViewState extends ConsumerState<HomeView> {
+  TextEditingController _searchCtrl = TextEditingController();
 
-class _HomeViewState extends ConsumerState<HomeView> {
 
-  Map<String, Spot> spots = {};
+
+  @override
+  void initState() {
+
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
+
     final key = ref.watch(Providers().DrawerProviider);
+    final spotList = ref.watch(spotProvider);
     var muniProvider = ref.watch(municipalityProvider);
-    var size =  MediaQuery.of(context).size;
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       key: key,
       appBar: PreferredSize(
           preferredSize: const Size.fromHeight(70),
           child: NvAppBar(DrawerKey: key,)
       ),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.only(left: 30, right: 30, top: 20, bottom: 30),
-          child: muniProvider.when(
-            data: (data){
-              return Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Expanded(
-                    child: Center(
-                        child: Stack(
-                          children: [
-                            CustomPaint(
-                              size: Size(500,(500*1).toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
-                              painter: Layer1(),
-                              child: GestureDetector(
-                                onTapDown: (s){
-                                  setState(() {
-                                    spots.clear();
-                                    spots.addAll(data.municipalities["Kayapa"]!.spots);
-                                  });
-                                  Fluttertoast.showToast(msg: "Kayapa");
-                                },
-                              ),
-                            ),
-                            GestureDetector(
-                              onTap: (){
-                                setState(() {
-                                  spots.clear();
-                                  spots.addAll(data.municipalities["Ambaguio"]!.spots);
-                                });
-                                Fluttertoast.showToast(msg: "Ambaguio");
-                              },
-                              child: CustomPaint(
-                                size: Size(500,(500*1).toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
-                                painter: Layer2(),
-                              ),
-                            ),
-                            GestureDetector(
-                              onTap: (){
-                                setState(() {
-                                  spots.clear();
-                                  spots.addAll(data.municipalities["Aritao"]!.spots);
-                                });
-                                Fluttertoast.showToast(msg: "Aritao");
-                              },
-                              child: CustomPaint(
-                                size: Size(500,(500*1).toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
-                                painter: Layer3(),
-                              ),
-                            ),
-                            GestureDetector(
-                              onTap: (){
-                                setState(() {
-                                  spots.clear();
-                                  spots.addAll(data.municipalities["Santa Fe"]!.spots);
-                                });
-                                Fluttertoast.showToast(msg: "Santa Fe");
-                              },
-                              child: CustomPaint(
-                                size: Size(500,(500*1).toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
-                                painter: Layer4(),
-                              ),
-                            ),
-                            GestureDetector(
-                              onTap: (){
-                                setState(() {
-                                  spots.clear();
-                                  spots.addAll(data.municipalities["Durax Del Sur"]!.spots);
-                                });
-                                Fluttertoast.showToast(msg: "Durax Del Sur");
-                              },
-                              child: CustomPaint(
-                                size: Size(500,(500*1).toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
-                                painter: Layer5(),
-                              ),
-                            ),
-                            GestureDetector(
-                              onTap: (){
-                                setState(() {
-                                  spots.clear();
-                                  spots.addAll(data.municipalities["Alfonso Castaneda"]!.spots);
-                                });
-                                Fluttertoast.showToast(msg: "Alfonso Castaneda");
-                              },
-                              child: CustomPaint(
-                                size: Size(500,(500*1).toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
-                                painter: Layer6(),
-                              ),
-                            ),
-                            GestureDetector(
-                              onTap: (){
-                                setState(() {
-                                  spots.clear();
-                                  spots.addAll(data.municipalities["Durax Del Norte"]!.spots);
-                                });
-                                Fluttertoast.showToast(msg: "Durax Del Norte");
-                              },
-                              child: CustomPaint(
-                                size: Size(500,(500*1).toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
-                                painter: Layer7(),
-                              ),
-                            ),
-                            GestureDetector(
-                              onTap: (){
-                                setState(() {
-                                  spots.clear();
-                                  spots.addAll(data.municipalities["Kasibu"]!.spots);
-                                });
-                                Fluttertoast.showToast(msg: "Kasibu");
-                              },
-                              child: CustomPaint(
-                                size: Size(500,(500*1).toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
-                                painter: Layer8(),
-                              ),
-                            ),
-                            GestureDetector(
-                              onTap: (){
-                                setState(() {
-                                  spots.clear();
-                                  spots.addAll(data.municipalities["Bambang"]!.spots);
-                                });
-                                Fluttertoast.showToast(msg: "Bambang");
-                              },
-                              child: CustomPaint(
-                                size: Size(500,(500*1).toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
-                                painter: Layer9(),
-                              ),
-                            ),
-                            GestureDetector(
-                              onTap: (){
-                                setState(() {
-                                  spots.clear();
-                                  spots.addAll(data.municipalities["Bayombong"]!.spots);
-                                });
-                                Fluttertoast.showToast(msg: "Bayombong");
-                              },
-                              child: CustomPaint(
-                                size: Size(500,(500*1).toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
-                                painter: Layer10(),
-                              ),
-                            ),
-                            GestureDetector(
-                              onTap: (){
-                                setState(() {
-                                  spots.clear();
-                                  spots.addAll(data.municipalities["Quezon"]!.spots);
-                                });
-                                Fluttertoast.showToast(msg: "Quezon");
-                              },
-                              child: CustomPaint(
-                                size: Size(500,(500*1).toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
-                                painter: Layer11(),
-                              ),
-                            ),
-                            GestureDetector(
-                              onTap: (){
-                                setState(() {
-                                  spots.clear();
-                                  spots.addAll(data.municipalities["Diadi"]!.spots);
-                                });
-                                Fluttertoast.showToast(msg: "Diadi");
-                              },
-                              child: CustomPaint(
-                                size: Size(500,(500*1).toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
-                                painter: Layer12(),
-                              ),
-                            ),
-                            GestureDetector(
-                              onTap: (){
-                                setState(() {
-                                  spots.clear();
-                                  spots.addAll(data.municipalities["Bagabag"]!.spots);
-                                });
-                                Fluttertoast.showToast(msg: "Bagabag");
+      body: muniProvider.when(
+        data: (data){
+          Map<String, Spot> spot = {};
+          for(var i = 0; i < data.municipalities.length; i++){
 
-                              },
-                              child: CustomPaint(
-                                size: Size(500,(500*1).toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
-                                painter: Layer13(),
-                              ),
-                            ),
-                            GestureDetector(
-                              onTap: (){
-                                setState(() {
-                                  spots.clear();
-                                  spots.addAll(data.municipalities["Solano"]!.spots);
-                                });
-                                Fluttertoast.showToast(msg: "Solano");
-                              },
-                              child: CustomPaint(
-                                size: Size(500,(500*1).toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
-                                painter: Layer14(),
-                              ),
-                            ),
-                            GestureDetector(
-                              onTap: (){
-                                setState(() {
-                                  spots.clear();
-                                  spots.addAll(data.municipalities["Villaverde"]!.spots);
-                                });
-                                Fluttertoast.showToast(msg: "Villaverde");
-                              },
-                              child: CustomPaint(
-                                size: Size(500,(500*1).toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
-                                painter: Layer15(),
-                              ),
-                            ),
-                          ],
-                        )
-                    ),
-                  ),
-                  Container(
-                    height: 225,
-                    width: size.width,
-                    decoration: BoxDecoration(
-                      color: AppColors().cardColor,
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    padding: const EdgeInsets.only(left: 30, right: 30, top: 20, bottom: 20),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Tourist Spots",
-                          style: GoogleFonts.poppins(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
+            print(data.municipalities.values.elementAt(i).spots.keys);
+            spot.addAll (data.municipalities.values.elementAt(i).spots);
+          }
+          return  Center(
+            child: Padding(
+              padding: const EdgeInsets.only(left: 30, right: 30, top: 20, bottom: 30),
+              child: muniProvider.when(
+                data: (data){
+                  return Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                          decoration: BoxDecoration(
+                              color: AppColors().cardColor,
+                              borderRadius: const BorderRadius.all(Radius.circular(50))
                           ),
-                        ),
-                        const SizedBox(height: 10),
-                        Expanded(
-                          child: ListView.separated(
-                            itemCount: spots.length,
-                            itemBuilder: (context, index){
-                              return Container(
-                                height: 50,
-                                width: size.width,
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                                padding: const EdgeInsets.only(top: 8, bottom: 8, right: 15, left: 15),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Expanded(
-                                      child: AutoSizeText(
-                                        "${spots.keys.elementAt(index)}",
-                                        style: GoogleFonts.poppins(
-                                          fontSize: 14,
-                                        ),
-                                        maxLines: 2,
-                                        overflow: TextOverflow.ellipsis,
-                                      ),
+                          width: 1000,
+                          height: 40,
+                          child: TextField(
+                            controller: _searchCtrl,
+                            onSubmitted: (data){
+                              showMaterialModalBottomSheet(
+                                  context: context,
+                                  shape: const RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(20),
+                                      topRight: Radius.circular(20),
                                     ),
-                                    SizedBox(width: 4,),
-                                    ElevatedButton(
-                                      onPressed: (){
-                                        GoRouter.of(context).push("/guide");
-                                      },
-                                      child: const Text(
-                                        "Visit",
-                                      ),
-                                      style: ElevatedButton.styleFrom(
-                                        elevation: 0,
-                                        fixedSize: const Size(85, 30),
-                                        backgroundColor: AppColors().primary,
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.circular(20),
-                                        ),
-                                      ),
-                                    )
-                                  ],
-                                ),
+                                  ),
+                                  builder: (context){
+                                    return ResultsSheet(query: data, spot: spot,);
+                                  }
                               );
                             },
-                            separatorBuilder: (context, index){
-                              return const SizedBox(height: 5,);
-                            },
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                ],
-              );
-            },
-            error: (error, stackTrace) => const Center(
-              child: Text("Error"),
+                            decoration: const InputDecoration(
+                              contentPadding: EdgeInsets.only(top: 5, bottom: 5),
+                              hintText: "Search Account",
+                              border: InputBorder.none,
+                              prefixIcon: Icon(Icons.search),
+                            ),
+                          )
+                      ),
+                      Expanded(
+                        child: Center(
+                            child: SizedBox(
+                              height: 300,
+                              width: 300,
+                              child: Stack(
+                                children: [
+                                  CustomPaint(
+                                    size: Size(500,(500*1).toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
+                                    painter: Layer1(),
+                                    child: GestureDetector(
+                                      onTapDown: (s){
+                                        for(int i = 0; i < values.length; i++){
+                                          values[i] = false;
+                                        }
+                                        values[0] = true;
+                                        setState(() {
+                                          ref.read(spotProvider.notifier).refreshSpot(data.municipalities["Kayapa"]!.spots);
+                                        });
+                                        Fluttertoast.showToast(msg: "Kayapa");
+                                      },
+                                    ),
+                                  ),
+                                  GestureDetector(
+                                    onTap: (){
+                                      for(int i = 0; i < values.length; i++){
+                                        values[i] = false;
+                                      }
+                                      values[1] = true;
+                                      setState(() {
+                                        ref.read(spotProvider.notifier).refreshSpot(data.municipalities["Ambaguio"]!.spots);
+                                      });
+                                      Fluttertoast.showToast(msg: "Ambaguio");
+                                    },
+                                    child: CustomPaint(
+                                      size: Size(500,(500*1).toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
+                                      painter: Layer2(),
+                                    ),
+                                  ),
+                                  GestureDetector(
+                                    onTap: (){
+                                      for(int i = 0; i < values.length; i++){
+                                        values[i] = false;
+                                      }
+                                      values[2] = true;
+                                      setState(() {
+                                        ref.read(spotProvider.notifier).refreshSpot(data.municipalities["Aritao"]!.spots);
+                                      });
+                                      Fluttertoast.showToast(msg: "Aritao");
+                                    },
+                                    child: CustomPaint(
+                                      size: Size(500,(500*1).toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
+                                      painter: Layer3(),
+                                    ),
+                                  ),
+                                  GestureDetector(
+                                    onTap: (){
+                                      for(int i = 0; i < values.length; i++){
+                                        values[i] = false;
+                                      }
+                                      values[3] = true;
+                                      setState(() {
+                                        ref.read(spotProvider.notifier).refreshSpot(data.municipalities["Santa Fe"]!.spots);
+                                      });
+                                      Fluttertoast.showToast(msg: "Santa Fe");
+                                    },
+                                    child: CustomPaint(
+                                      size: Size(500,(500*1).toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
+                                      painter: Layer4(),
+                                    ),
+                                  ),
+                                  GestureDetector(
+                                    onTap: (){
+                                      for(int i = 0; i < values.length; i++){
+                                        values[i] = false;
+                                      }
+                                      values[4] = true;
+                                      setState(() {
+                                        ref.read(spotProvider.notifier).refreshSpot(data.municipalities["Dupax Del Sur"]!.spots);
+                                      });
+                                      Fluttertoast.showToast(msg: "Dupax Del Sur");
+                                    },
+                                    child: CustomPaint(
+                                      size: Size(500,(500*1).toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
+                                      painter: Layer5(),
+                                    ),
+                                  ),
+                                  GestureDetector(
+                                    onTap: (){
+                                      for(int i = 0; i < values.length; i++){
+                                        values[i] = false;
+                                      }
+                                      values[5] = true;
+                                      setState(() {
+                                        ref.read(spotProvider.notifier).refreshSpot(data.municipalities["Alfonso Castaneda"]!.spots);
+                                      });
+                                      Fluttertoast.showToast(msg: "Alfonso Castaneda");
+                                    },
+                                    child: CustomPaint(
+                                      size: Size(500,(500*1).toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
+                                      painter: Layer6(),
+                                    ),
+                                  ),
+                                  GestureDetector(
+                                    onTap: (){
+                                      for(int i = 0; i < values.length; i++){
+                                        values[i] = false;
+                                      }
+                                      values[6] = true;
+
+                                      setState(() {
+                                        ref.read(spotProvider.notifier).refreshSpot(data.municipalities["Dupax Del Norte"]!.spots);
+                                      });
+                                      Fluttertoast.showToast(msg: "Dupax Del Norte");
+                                    },
+                                    child: CustomPaint(
+                                      size: Size(500,(500*1).toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
+                                      painter: Layer7(),
+                                    ),
+                                  ),
+                                  GestureDetector(
+                                    onTap: (){
+                                      for(int i = 0; i < values.length; i++){
+                                        values[i] = false;
+                                      }
+                                      values[7] = true;
+
+                                      setState(() {
+                                        ref.read(spotProvider.notifier).refreshSpot(data.municipalities["Kasibu"]!.spots);
+                                      });
+                                      Fluttertoast.showToast(msg: "Kasibu");
+                                    },
+                                    child: CustomPaint(
+                                      size: Size(500,(500*1).toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
+                                      painter: Layer8(),
+                                    ),
+                                  ),
+                                  GestureDetector(
+                                    onTap: (){
+                                      for(int i = 0; i < values.length; i++){
+                                        values[i] = false;
+                                      }
+                                      values[8] = true;
+
+                                      setState(() {
+                                        ref.read(spotProvider.notifier).refreshSpot(data.municipalities["Bambang"]!.spots);
+                                      });
+                                      Fluttertoast.showToast(msg: "Bambang");
+                                    },
+                                    child: CustomPaint(
+                                      size: Size(500,(500*1).toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
+                                      painter: Layer9(),
+                                    ),
+                                  ),
+                                  GestureDetector(
+                                    onTap: (){
+                                      for(int i = 0; i < values.length; i++){
+                                        values[i] = false;
+                                      }
+                                      values[9] = true;
+
+                                      setState(() {
+                                        ref.read(spotProvider.notifier).refreshSpot(data.municipalities["Bayombong"]!.spots);
+                                      });
+                                      Fluttertoast.showToast(msg: "Bayombong");
+                                    },
+                                    child: CustomPaint(
+                                      size: Size(500,(500*1).toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
+                                      painter: Layer10(),
+                                    ),
+                                  ),
+                                  GestureDetector(
+                                    onTap: (){
+                                      for(int i = 0; i < values.length; i++){
+                                        values[i] = false;
+                                      }
+                                      values[10] = true;
+
+                                      setState(() {
+                                        ref.read(spotProvider.notifier).refreshSpot(data.municipalities["Quezon"]!.spots);
+                                      });
+                                      Fluttertoast.showToast(msg: "Quezon");
+                                    },
+                                    child: CustomPaint(
+                                      size: Size(500,(500*1).toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
+                                      painter: Layer11(),
+                                    ),
+                                  ),
+                                  GestureDetector(
+                                    onTap: (){
+                                      for(int i = 0; i < values.length; i++){
+                                        values[i] = false;
+                                      }
+                                      values[11] = true;
+
+                                      setState(() {
+                                        ref.read(spotProvider.notifier).refreshSpot(data.municipalities["Diadi"]!.spots);
+                                      });
+                                      Fluttertoast.showToast(msg: "Diadi");
+                                    },
+                                    child: CustomPaint(
+                                      size: Size(500,(500*1).toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
+                                      painter: Layer12(),
+                                    ),
+                                  ),
+                                  GestureDetector(
+                                    onTap: (){
+                                      for(int i = 0; i < values.length; i++){
+                                        values[i] = false;
+                                      }
+                                      values[12] = true;
+
+                                      setState(() {
+                                        ref.read(spotProvider.notifier).refreshSpot(data.municipalities["Bagabag"]!.spots);
+                                      });
+                                      Fluttertoast.showToast(msg: "Bagabag");
+
+                                    },
+                                    child: CustomPaint(
+                                      size: Size(500,(500*1).toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
+                                      painter: Layer13(),
+                                    ),
+                                  ),
+                                  GestureDetector(
+                                    onTap: (){
+                                      for(int i = 0; i < values.length; i++){
+                                        values[i] = false;
+                                      }
+                                      values[13] = true;
+
+                                      setState(() {
+                                        ref.read(spotProvider.notifier).refreshSpot(data.municipalities["Solano"]!.spots);
+                                      });
+                                      Fluttertoast.showToast(msg: "Solano");
+                                    },
+                                    child: CustomPaint(
+                                      size: Size(500,(500*1).toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
+                                      painter: Layer14(),
+                                    ),
+                                  ),
+                                  GestureDetector(
+                                    onTap: (){
+                                      for(int i = 0; i < values.length; i++){
+                                        values[i] = false;
+                                      }
+                                      values[14] = true;
+
+                                      setState(() {
+                                        ref.read(spotProvider.notifier).refreshSpot(data.municipalities["Villaverde"]!.spots);
+
+                                      });
+                                      Fluttertoast.showToast(msg: "Villaverde");
+                                    },
+                                    child: CustomPaint(
+                                      size: Size(500,(500*1).toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
+                                      painter: Layer15(),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            )
+                        ),
+                      ),
+                      Container(
+                        height: 225,
+                        width: 1000,
+                        decoration: BoxDecoration(
+                          color: AppColors().cardColor,
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        padding: const EdgeInsets.only(left: 30, right: 30, top: 20, bottom: 20),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Tourist Spots",
+                              style: GoogleFonts.poppins(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            const SizedBox(height: 10),
+                            Expanded(
+                              child: ListView.separated(
+                                itemCount: ref.read(spotProvider.notifier).state.length,
+                                itemBuilder: (context, index){
+                                  return Container(
+                                    height: 50,
+                                    width: 1000,
+                                    decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                    padding: const EdgeInsets.only(top: 8, bottom: 8, right: 15, left: 15),
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      crossAxisAlignment: CrossAxisAlignment.center,
+                                      children: [
+                                        Expanded(
+                                          child: AutoSizeText(
+                                            "${ref.read(spotProvider.notifier).state.keys.elementAt(index)}",
+                                            style: GoogleFonts.poppins(
+                                              fontSize: 14,
+                                            ),
+                                            maxLines: 2,
+                                            overflow: TextOverflow.ellipsis,
+                                          ),
+                                        ),
+                                        SizedBox(width: 4,),
+                                        ElevatedButton(
+                                          onPressed: (){
+                                            GoRouter.of(context).push("/guide", extra: ref.read(spotProvider.notifier).state.values.elementAt(index));
+                                          },
+                                          child: const Text(
+                                            "Visit",
+                                          ),
+                                          style: ElevatedButton.styleFrom(
+                                            elevation: 0,
+                                            fixedSize: const Size(85, 30),
+                                            backgroundColor: AppColors().primary,
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius: BorderRadius.circular(20),
+                                            ),
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  );
+                                },
+                                separatorBuilder: (context, index){
+                                  return const SizedBox(height: 5,);
+                                },
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    ],
+                  );
+                },
+                error: (error, stackTrace) => const Center(
+                  child: Text("Error"),
+                ),
+                loading: () => const Center(
+                  child: CircularProgressIndicator(),
+                ),
+              ),
             ),
-            loading: () => const Center(
-              child: CircularProgressIndicator(),
-            ),
-          ),
+          );
+        },
+        error: (error, stackTrace) => const Center(
+          child: Text("Error"),
         ),
+        loading: (){
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        },
       ),
       drawer: AppDrawer()
     );
@@ -353,9 +473,14 @@ class Layer1 extends CustomPainter{
   void paint(Canvas canvas, Size size) {
 
     Paint paint0 = Paint()
-      ..color = const Color.fromARGB(255, 33, 150, 243)
-      ..style = PaintingStyle.stroke
+      ..color = values[0] ? Colors.redAccent : Colors.yellow
+      ..style = PaintingStyle.fill
       ..strokeWidth = 2;
+
+    Paint strokePath = Paint()
+      ..color = Colors.black
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1;
 
 
     path0.moveTo(size.width*0.3020000,size.height*0.1800000);
@@ -373,6 +498,7 @@ class Layer1 extends CustomPainter{
     path0.close();
 
     canvas.drawPath(path0, paint0);
+    canvas.drawPath(path0, strokePath);
 
   }
 
@@ -394,9 +520,14 @@ class Layer2 extends CustomPainter{
   @override
   void paint(Canvas canvas, Size size) {
     Paint paint1 = Paint()
-      ..color = const Color.fromARGB(255, 33, 150, 243)
-      ..style = PaintingStyle.stroke
+      ..color = values[1] ? Colors.redAccent : Colors.yellow
+      ..style = PaintingStyle.fill
       ..strokeWidth = 2;
+
+    Paint strokePath = Paint()
+      ..color = Colors.black
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1;
 
     path1.moveTo(size.width*0.3700000,size.height*0.1700000);
     path1.lineTo(size.width*0.4700000,size.height*0.1480000);
@@ -408,6 +539,7 @@ class Layer2 extends CustomPainter{
     path1.close();
 
     canvas.drawPath(path1, paint1);
+    canvas.drawPath(path1, strokePath);
   }
 
   @override
@@ -430,10 +562,14 @@ class Layer3 extends CustomPainter{
   void paint(Canvas canvas, Size size) {
 
     Paint paint2 = Paint()
-      ..color = const Color.fromARGB(255, 33, 150, 243)
-      ..style = PaintingStyle.stroke
+      ..color = values[2] ? Colors.redAccent : Colors.yellow
+      ..style = PaintingStyle.fill
       ..strokeWidth = 2;
 
+    Paint strokePath = Paint()
+      ..color = Colors.black
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1;
     path2.moveTo(size.width*0.3860000,size.height*0.3940000);
     path2.lineTo(size.width*0.4680000,size.height*0.4860000);
     path2.lineTo(size.width*0.4800000,size.height*0.6280000);
@@ -444,6 +580,7 @@ class Layer3 extends CustomPainter{
     path2.close();
 
     canvas.drawPath(path2, paint2);
+    canvas.drawPath(path2, strokePath);
 
   }
 
@@ -467,10 +604,14 @@ class Layer4 extends CustomPainter{
   void paint(Canvas canvas, Size size) {
 
     Paint paint3 = Paint()
-      ..color = const Color.fromARGB(255, 33, 150, 243)
-      ..style = PaintingStyle.stroke
+      ..color = values[3] ? Colors.redAccent : Colors.yellow
+      ..style = PaintingStyle.fill
       ..strokeWidth = 2;
 
+    Paint strokePath = Paint()
+      ..color = Colors.black
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1;
     path3.moveTo(size.width*0.1760000,size.height*0.4780000);
     path3.lineTo(size.width*0.1660000,size.height*0.4900000);
     path3.lineTo(size.width*0.1780000,size.height*0.5280000);
@@ -483,6 +624,7 @@ class Layer4 extends CustomPainter{
     path3.close();
 
     canvas.drawPath(path3, paint3);
+    canvas.drawPath(path3, strokePath);
   }
 
   @override
@@ -505,9 +647,14 @@ class Layer5 extends CustomPainter{
   void paint(Canvas canvas, Size size) {
 
     Paint paint4 = Paint()
-      ..color = const Color.fromARGB(255, 33, 150, 243)
-      ..style = PaintingStyle.stroke
+      ..color = values[4] ? Colors.redAccent : Colors.yellow
+      ..style = PaintingStyle.fill
       ..strokeWidth = 2;
+
+    Paint strokePath = Paint()
+      ..color = Colors.black
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1;
 
     path4.moveTo(size.width*0.4120000,size.height*0.4200000);
     path4.lineTo(size.width*0.4660000,size.height*0.4840000);
@@ -522,6 +669,7 @@ class Layer5 extends CustomPainter{
     path4.close();
 
     canvas.drawPath(path4, paint4);
+    canvas.drawPath(path4, strokePath);
   }
 
   @override
@@ -543,9 +691,14 @@ class Layer6 extends CustomPainter{
   void paint(Canvas canvas, Size size) {
 
     Paint paint5 = Paint()
-      ..color = const Color.fromARGB(255, 33, 150, 243)
-      ..style = PaintingStyle.stroke
+      ..color = values[5] ? Colors.redAccent : Colors.yellow
+      ..style = PaintingStyle.fill
       ..strokeWidth = 2;
+
+    Paint strokePath = Paint()
+      ..color = Colors.black
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1;
 
     path5.moveTo(size.width*0.5620000,size.height*0.8520000);
     path5.lineTo(size.width*0.6340000,size.height*0.7160000);
@@ -556,6 +709,7 @@ class Layer6 extends CustomPainter{
     path5.close();
 
     canvas.drawPath(path5, paint5);
+    canvas.drawPath(path5, strokePath);
   }
 
   @override
@@ -577,9 +731,14 @@ class Layer7 extends CustomPainter{
   void paint(Canvas canvas, Size size) {
 
     Paint paint6 = Paint()
-      ..color = const Color.fromARGB(255, 33, 150, 243)
-      ..style = PaintingStyle.stroke
+      ..color = values[6] ? Colors.redAccent : Colors.yellow
+      ..style = PaintingStyle.fill
       ..strokeWidth = 2;
+
+    Paint strokePath = Paint()
+      ..color = Colors.black
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1;
 
     path6.moveTo(size.width*0.4600000,size.height*0.4160000);
     path6.lineTo(size.width*0.5600000,size.height*0.4100000);
@@ -592,6 +751,7 @@ class Layer7 extends CustomPainter{
     path6.close();
 
     canvas.drawPath(path6, paint6);
+    canvas.drawPath(path6, strokePath);
 
   }
 
@@ -614,9 +774,14 @@ class Layer8 extends CustomPainter{
   void paint(Canvas canvas, Size size) {
 
     Paint paint7 = Paint()
-      ..color = const Color.fromARGB(255, 33, 150, 243)
-      ..style = PaintingStyle.stroke
+      ..color = values[7] ? Colors.redAccent : Colors.yellow
+      ..style = PaintingStyle.fill
       ..strokeWidth = 2;
+
+    Paint strokePath = Paint()
+      ..color = Colors.black
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1;
 
     path7.moveTo(size.width*0.6600000,size.height*0.5300000);
     path7.lineTo(size.width*0.7180000,size.height*0.5440000);
@@ -632,6 +797,7 @@ class Layer8 extends CustomPainter{
     path7.close();
 
     canvas.drawPath(path7, paint7);
+    canvas.drawPath(path7, strokePath);
 
   }
 
@@ -654,9 +820,14 @@ class Layer9 extends CustomPainter{
   void paint(Canvas canvas, Size size) {
 
     Paint paint8 = Paint()
-      ..color = const Color.fromARGB(255, 33, 150, 243)
-      ..style = PaintingStyle.stroke
+      ..color = values[8] ? Colors.redAccent : Colors.yellow
+      ..style = PaintingStyle.fill
       ..strokeWidth = 2;
+
+    Paint strokePath = Paint()
+      ..color = Colors.black
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1;
 
     path8.moveTo(size.width*0.3560000,size.height*0.3600000);
     path8.lineTo(size.width*0.3980000,size.height*0.2980000);
@@ -668,6 +839,7 @@ class Layer9 extends CustomPainter{
     path8.close();
 
     canvas.drawPath(path8, paint8);
+    canvas.drawPath(path8, strokePath);
   }
 
   @override
@@ -688,9 +860,14 @@ class Layer10 extends CustomPainter{
   void paint(Canvas canvas, Size size) {
 
     Paint paint9 = Paint()
-      ..color = const Color.fromARGB(255, 33, 150, 243)
-      ..style = PaintingStyle.stroke
+      ..color = values[9] ? Colors.redAccent : Colors.yellow
+      ..style = PaintingStyle.fill
       ..strokeWidth = 2;
+
+    Paint strokePath = Paint()
+      ..color = Colors.black
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1;
 
     path9.moveTo(size.width*0.4460000,size.height*0.3040000);
     path9.lineTo(size.width*0.4420000,size.height*0.2600000);
@@ -701,6 +878,7 @@ class Layer10 extends CustomPainter{
     path9.close();
 
     canvas.drawPath(path9, paint9);
+    canvas.drawPath(path9, strokePath);
   }
 
   @override
@@ -722,9 +900,14 @@ class Layer11 extends CustomPainter{
   void paint(Canvas canvas, Size size) {
 
     Paint paint10 = Paint()
-      ..color = const Color.fromARGB(255, 33, 150, 243)
-      ..style = PaintingStyle.stroke
+      ..color = values[10] ? Colors.redAccent : Colors.yellow
+      ..style = PaintingStyle.fill
       ..strokeWidth = 2;
+
+    Paint strokePath = Paint()
+      ..color = Colors.black
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1;
 
     path10.moveTo(size.width*0.5520000,size.height*0.2740000);
     path10.lineTo(size.width*0.6040000,size.height*0.2340000);
@@ -737,6 +920,7 @@ class Layer11 extends CustomPainter{
     path10.close();
 
     canvas.drawPath(path10, paint10);
+    canvas.drawPath(path10, strokePath);
 
   }
 
@@ -759,9 +943,14 @@ class Layer12 extends CustomPainter{
   void paint(Canvas canvas, Size size) {
 
     Paint paint11 = Paint()
-      ..color = const Color.fromARGB(255, 33, 150, 243)
-      ..style = PaintingStyle.stroke
+      ..color = values[11] ? Colors.redAccent : Colors.yellow
+      ..style = PaintingStyle.fill
       ..strokeWidth = 2;
+
+    Paint strokePath = Paint()
+      ..color = Colors.black
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1;
 
     path11.moveTo(size.width*0.7240000,size.height*0.2400000);
     path11.lineTo(size.width*0.7420000,size.height*0.1400000);
@@ -774,6 +963,7 @@ class Layer12 extends CustomPainter{
     path11.close();
 
     canvas.drawPath(path11, paint11);
+    canvas.drawPath(path11, strokePath);
   }
 
   @override
@@ -795,9 +985,14 @@ class Layer13 extends CustomPainter{
   void paint(Canvas canvas, Size size) {
 
     Paint paint12 = Paint()
-      ..color = const Color.fromARGB(255, 33, 150, 243)
-      ..style = PaintingStyle.stroke
+      ..color = values[12] ? Colors.redAccent : Colors.yellow
+      ..style = PaintingStyle.fill
       ..strokeWidth = 2;
+
+    Paint strokePath = Paint()
+      ..color = Colors.black
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1;
 
     path12.moveTo(size.width*0.6800000,size.height*0.2560000);
     path12.lineTo(size.width*0.6020000,size.height*0.2340000);
@@ -808,6 +1003,7 @@ class Layer13 extends CustomPainter{
     path12.lineTo(size.width*0.6800000,size.height*0.2560000);
     path12.close();
     canvas.drawPath(path12, paint12);
+    canvas.drawPath(path12, strokePath);
 
   }
 
@@ -830,9 +1026,14 @@ class Layer14 extends CustomPainter{
   void paint(Canvas canvas, Size size) {
 
     Paint paint13 = Paint()
-      ..color = const Color.fromARGB(255, 33, 150, 243)
-      ..style = PaintingStyle.stroke
+      ..color = values[13] ? Colors.redAccent : Colors.yellow
+      ..style = PaintingStyle.fill
       ..strokeWidth = 2;
+
+    Paint strokePath = Paint()
+      ..color = Colors.black
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1;
 
 
     path13.moveTo(size.width*0.5560000,size.height*0.2700000);
@@ -844,6 +1045,7 @@ class Layer14 extends CustomPainter{
     path13.close();
 
     canvas.drawPath(path13, paint13);
+    canvas.drawPath(path13, strokePath);
 
   }
 
@@ -866,9 +1068,15 @@ class Layer15 extends CustomPainter{
   void paint(Canvas canvas, Size size) {
 
     Paint paint14 = Paint()
-      ..color = const Color.fromARGB(255, 33, 150, 243)
-      ..style = PaintingStyle.stroke
+      ..color = values[14] ? Colors.redAccent : Colors.yellow
+      ..style = PaintingStyle.fill
       ..strokeWidth = 2;
+
+    Paint strokePath = Paint()
+      ..color = Colors.black
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1;
+
 
     path14.moveTo(size.width*0.5760000,size.height*0.1720000);
     path14.lineTo(size.width*0.5660000,size.height*0.1280000);
@@ -878,6 +1086,7 @@ class Layer15 extends CustomPainter{
     path14.close();
 
     canvas.drawPath(path14, paint14);
+    canvas.drawPath(path14, strokePath);
 
 
   }
