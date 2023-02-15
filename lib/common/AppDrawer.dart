@@ -1,9 +1,12 @@
+import 'dart:collection';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:nvtours/viewmodel/SpotViewModel.dart';
 
+import '../model/MunicipalityModel.dart';
 import '../viewmodel/MunicipalityViewModel.dart';
 
 class AppDrawer extends ConsumerStatefulWidget {
@@ -18,7 +21,7 @@ class AppDrawer extends ConsumerStatefulWidget {
 class _AppDrawerState extends ConsumerState<AppDrawer> {
   @override
   Widget build(BuildContext context) {
-    var _municipality = ref.watch(municipalityProvider);
+    var municipality = ref.watch(municipalityProvider);
     return SafeArea(
       child: Container(
         color: Colors.white,
@@ -39,21 +42,22 @@ class _AppDrawerState extends ConsumerState<AppDrawer> {
                 ),
               ),
               Expanded(
-                child: _municipality.when(
+                child: municipality.when(
                   data: (data){
+                    SplayTreeMap<String, Municipality> sortedMunicipalities = SplayTreeMap.from(data.municipalities);
                     return ListView.builder(
-                      itemCount: data.municipalities.length,
+                      itemCount: sortedMunicipalities.length,
                       itemBuilder: (builder, index){
                         return ListTile(
                           onTap: (){
-                            print(data.municipalities.values.elementAt(index).spots.keys);
-                            ref.read(spotProvider.notifier).refreshSpot(data.municipalities.values.elementAt(index).spots);
+                            print(sortedMunicipalities.values.elementAt(index).spots.keys);
+                            ref.read(spotProvider.notifier).refreshSpot(sortedMunicipalities.values.elementAt(index).spots);
                             Navigator.pop(context);
                             context.go("/");
                      //      GoRouter.of(context).push("/");
                           },
                           title: Text(
-                            data.municipalities.keys.elementAt(index),
+                            sortedMunicipalities.keys.elementAt(index),
                             style: GoogleFonts.poppins(
                               fontSize: 16,
                             ),

@@ -159,7 +159,7 @@ class _MoreViewState extends ConsumerState<MoreView> {
                                       },
                                       decoration: const InputDecoration(
                                         contentPadding: EdgeInsets.only(top: 5, bottom: 5),
-                                        hintText: "Search Account",
+                                        hintText: "Search",
                                         border: InputBorder.none,
                                         prefixIcon: Icon(Icons.search),
                                       ),
@@ -174,14 +174,36 @@ class _MoreViewState extends ConsumerState<MoreView> {
                                     mainAxisSpacing: 2,
                                     crossAxisSpacing: 2,
                                     itemBuilder: (context, index) {
-                                      return Card(
-                                        //index: index,
-                                        child: Container(
-                                          color: AppColors().primary,
-                                          height: Random().nextInt(150) + 100.5,
-                                          child: Image.network(
-                                            widget.spot.pictures[index],
-                                            fit: BoxFit.cover,
+                                      return InkWell(
+                                        onTap: (){
+                                          showMaterialModalBottomSheet(
+                                              context: context,
+                                              shape: const RoundedRectangleBorder(
+                                                borderRadius: BorderRadius.only(
+                                                  topLeft: Radius.circular(20),
+                                                  topRight: Radius.circular(20),
+                                                ),
+                                              ),
+                                              builder: (context){
+                                                return SizedBox(
+                                                  height: MediaQuery.of(context).size.height * 0.9,
+                                                  child: Image.network(
+                                                    widget.spot.pictures[index],
+                                                    fit: BoxFit.cover,
+                                                  ),
+                                                );
+                                              }
+                                          );
+                                        },
+                                        child: Card(
+                                          //index: index,
+                                          child: Container(
+                                            color: AppColors().primary,
+                                            height: Random().nextInt(150) + 100.5,
+                                            child: Image.network(
+                                              widget.spot.pictures[index],
+                                              fit: BoxFit.cover,
+                                            ),
                                           ),
                                         ),
                                       );

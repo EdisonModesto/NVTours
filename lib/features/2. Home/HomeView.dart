@@ -89,7 +89,7 @@ class HomeView extends ConsumerStatefulWidget {
                             },
                             decoration: const InputDecoration(
                               contentPadding: EdgeInsets.only(top: 5, bottom: 5),
-                              hintText: "Search Account",
+                              hintText: "Search",
                               border: InputBorder.none,
                               prefixIcon: Icon(Icons.search),
                             ),

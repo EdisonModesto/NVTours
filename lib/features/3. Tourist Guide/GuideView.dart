@@ -37,54 +37,56 @@ class _GuideViewState extends ConsumerState<GuideView> {
   Widget build(BuildContext context) {
     var muniProvider = ref.watch(municipalityProvider);
     final key = ref.watch(Providers().DrawerProviider);
-  //  var size =  MediaQuery.of(context).size;
+    //  var size =  MediaQuery.of(context).size;
     return Scaffold(
-      resizeToAvoidBottomInset: false,
-      key: key,
-      appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(70),
-          child: NvAppBar(DrawerKey: key,)
-      ),
-      body: muniProvider.when(
-        data: (data){
+        resizeToAvoidBottomInset: false,
+        key: key,
+        appBar: PreferredSize(
+            preferredSize: const Size.fromHeight(70),
+            child: NvAppBar(
+              DrawerKey: key,
+            )),
+        body: muniProvider.when(data: (data) {
           Map<String, Spot> spot = {};
-          for(var i = 0; i < data.municipalities.length; i++){
-
+          for (var i = 0; i < data.municipalities.length; i++) {
             print(data.municipalities.values.elementAt(i).spots.keys);
-            spot.addAll (data.municipalities.values.elementAt(i).spots);
+            spot.addAll(data.municipalities.values.elementAt(i).spots);
           }
           return Center(
             child: Padding(
-              padding: const EdgeInsets.only(left: 30, right: 30, top: 20, bottom: 30),
+              padding: const EdgeInsets.only(
+                  left: 30, right: 30, top: 20, bottom: 30),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(
                     decoration: BoxDecoration(
                         color: AppColors().cardColor,
-                        borderRadius: const BorderRadius.all(Radius.circular(50))
-                    ),
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(50))),
                     width: 1000,
                     height: 40,
                     child: TextField(
                       controller: _searchCtrl,
-                      onSubmitted: (data){
+                      onSubmitted: (data) {
                         showMaterialModalBottomSheet(
-                          context: context,
-                          shape: const RoundedRectangleBorder(
-                            borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(20),
-                              topRight: Radius.circular(20),
+                            context: context,
+                            shape: const RoundedRectangleBorder(
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(20),
+                                topRight: Radius.circular(20),
+                              ),
                             ),
-                          ),
-                          builder: (context){
-                            return ResultsSheet(query: data, spot: spot,);
-                          }
-                        );
+                            builder: (context) {
+                              return ResultsSheet(
+                                query: data,
+                                spot: spot,
+                              );
+                            });
                       },
                       decoration: const InputDecoration(
                         contentPadding: EdgeInsets.only(top: 5, bottom: 5),
-                        hintText: "Search Account",
+                        hintText: "Search",
                         border: InputBorder.none,
                         prefixIcon: Icon(Icons.search),
                       ),
@@ -92,76 +94,148 @@ class _GuideViewState extends ConsumerState<GuideView> {
                   ),
                   const SizedBox(height: 10),
                   Expanded(
-                      child: ListView.separated(
-                        itemCount: 3,
-                        itemBuilder: (context, index){
-                          return InkWell(
-                            onTap: (){
-                              GoRouter.of(context).push('/Info', extra: widget.spot);
-                            },
-                            child: Container(
-                                height: 175,
-                                width: 1000,
-                                decoration: BoxDecoration(
-                                  color: AppColors().cardColor,
-                                  borderRadius: const BorderRadius.all(Radius.circular(12)),
-                                  border: Border.all(color: Colors.black),
-                                ),
-                                child: ClipRRect(
-                                  borderRadius: const BorderRadius.all(Radius.circular(11)),
-                                  child: Column(
-                                    children: [
-                                      Expanded(
-                                        flex: 2,
-                                        child: Center(
-                                          child: Image.network(
-                                            widget.spot.pictures[index],
-                                            fit: BoxFit.cover,
-                                            width: 1000,
-                                            height: 1000,
-                                          ),
-                                        ),
-                                      ),
-                                      Expanded(
-                                        flex: 1,
-                                        child: Container(
+                    child: SingleChildScrollView(
+                      child: Column(children: [
+                        InkWell(
+                          onTap: () {
+                            GoRouter.of(context)
+                                .push('/Info', extra: widget.spot);
+                          },
+                          child: Container(
+                              height: 175,
+                              width: 1000,
+                              decoration: BoxDecoration(
+                                color: AppColors().cardColor,
+                                borderRadius:
+                                    const BorderRadius.all(Radius.circular(12)),
+                                border: Border.all(color: Colors.black),
+                              ),
+                              child: ClipRRect(
+                                borderRadius:
+                                    const BorderRadius.all(Radius.circular(11)),
+                                child: Column(
+                                  children: [
+                                    Expanded(
+                                      flex: 2,
+                                      child: Center(
+                                        child: Image.network(
+                                          widget.spot.pictures[0],
+                                          fit: BoxFit.cover,
                                           width: 1000,
-                                          padding: const EdgeInsets.all(5),
-                                          decoration: BoxDecoration(
-                                            color: AppColors().primary,
-                                            border: const Border(
-                                              top: BorderSide(
-                                                color: Colors.black,
-                                              ),
+                                          height: 1000,
+                                        ),
+                                      ),
+                                    ),
+                                    Expanded(
+                                      flex: 1,
+                                      child: Container(
+                                        width: 1000,
+                                        padding: const EdgeInsets.all(5),
+                                        decoration: BoxDecoration(
+                                          color: AppColors().primary,
+                                          border: const Border(
+                                            top: BorderSide(
+                                              color: Colors.black,
                                             ),
                                           ),
-                                          child: Center(
-                                            child: Text(
-                                              "Tap to view more",
-                                              style: GoogleFonts.poppins(
-                                                fontSize: 15,
-                                                color: Colors.white,
-                                              ),
+                                        ),
+                                        child: Center(
+                                          child: Text(
+                                            "Tap to view more",
+                                            style: GoogleFonts.poppins(
+                                              fontSize: 15,
+                                              color: Colors.white,
                                             ),
                                           ),
                                         ),
                                       ),
-                                    ],
+                                    ),
+                                  ],
+                                ),
+                              )),
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Container(
+                          width: 1000,
+                          decoration: BoxDecoration(
+                            color: AppColors().primary,
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          child: ExpansionTile(
+                              title: Text(
+                                "Description",
+                                style: GoogleFonts.poppins(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              initiallyExpanded: true,
+                              trailing: const Icon(
+                                Icons.arrow_drop_down_circle_outlined,
+                                color: Colors.white,
+                              ),
+                              collapsedTextColor: Colors.white,
+                              collapsedIconColor: Colors.white,
+                              textColor: Colors.white,
+                              childrenPadding: const EdgeInsets.only(
+                                  left: 20, right: 20, bottom: 10),
+                              children: [
+                                Align(
+                                  alignment: Alignment.topLeft,
+                                  child: Text(
+                                    widget.spot.description,
+                                    style: GoogleFonts.poppins(
+                                        fontSize: 15, color: Colors.white),
                                   ),
                                 )
+                              ]),
+                        ),
+
+                        /*       Container(
+                            height: 175,
+                            width: 1000,
+                            decoration: BoxDecoration(
+                              color: AppColors().cardColor,
+                              borderRadius:
+                              const BorderRadius.all(Radius.circular(12)),
+                              border: Border.all(color: Colors.black),
                             ),
-                          );
-                        },
-                        separatorBuilder: (context, index){
-                          return const SizedBox(height: 10);
-                        },
-                      )
+                            child: ClipRRect(
+                              borderRadius:
+                              const BorderRadius.all(Radius.circular(11)),
+                              child: Expanded(
+                                flex: 1,
+                                child: Container(
+                                  width: 1000,
+                                  padding: const EdgeInsets.all(5),
+                                  decoration: BoxDecoration(
+                                    color: AppColors().primary,
+                                    border: const Border(
+                                      top: BorderSide(
+                                        color: Colors.black,
+                                      ),
+                                    ),
+                                  ),
+                                  child: Text(
+                                    widget.spot.description,
+                                    style: GoogleFonts.poppins(
+                                      fontSize: 15,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            )),*/
+                      ]),
+                    ),
                   ),
                   const SizedBox(height: 10),
                   Container(
                     height: 150,
                     width: 1000,
-                    padding: EdgeInsets.only(top: 20),
+                    padding: const EdgeInsets.only(top: 20),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -177,9 +251,10 @@ class _GuideViewState extends ConsumerState<GuideView> {
                         Expanded(
                           child: ListView.separated(
                             itemCount: widget.spot.guides.length,
-                            itemBuilder: (context, index){
+                            itemBuilder: (context, index) {
                               return Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
                                     widget.spot.guides[index],
@@ -190,8 +265,10 @@ class _GuideViewState extends ConsumerState<GuideView> {
                                 ],
                               );
                             },
-                            separatorBuilder: (context, index){
-                              return const SizedBox(height: 10,);
+                            separatorBuilder: (context, index) {
+                              return const SizedBox(
+                                height: 10,
+                              );
                             },
                           ),
                         )
@@ -202,19 +279,15 @@ class _GuideViewState extends ConsumerState<GuideView> {
               ),
             ),
           );
-        },
-        error: (error, stack){
+        }, error: (error, stack) {
           return Center(
             child: Text(error.toString()),
           );
-        },
-        loading: (){
+        }, loading: () {
           return const Center(
             child: CircularProgressIndicator(),
           );
-        }
-      ),
-      drawer: AppDrawer()
-    );
+        }),
+        drawer: const AppDrawer());
   }
 }
