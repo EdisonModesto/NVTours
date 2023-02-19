@@ -27,7 +27,7 @@ class HomeView extends ConsumerStatefulWidget {
 }class _HomeViewState extends ConsumerState<HomeView> {
   TextEditingController _searchCtrl = TextEditingController();
 
-
+  var currently = "";
 
   @override
   void initState() {
@@ -111,10 +111,11 @@ class HomeView extends ConsumerStatefulWidget {
                                           values[i] = false;
                                         }
                                         values[0] = true;
+
                                         setState(() {
+                                          currently = "Kayapa";
                                           ref.read(spotProvider.notifier).refreshSpot(data.municipalities["Kayapa"]!.spots);
                                         });
-                                        Fluttertoast.showToast(msg: "Kayapa");
                                       },
                                     ),
                                   ),
@@ -125,6 +126,7 @@ class HomeView extends ConsumerStatefulWidget {
                                       }
                                       values[1] = true;
                                       setState(() {
+                                        currently = "Ambaguio";
                                         ref.read(spotProvider.notifier).refreshSpot(data.municipalities["Ambaguio"]!.spots);
                                       });
                                       Fluttertoast.showToast(msg: "Ambaguio");
@@ -141,9 +143,9 @@ class HomeView extends ConsumerStatefulWidget {
                                       }
                                       values[2] = true;
                                       setState(() {
+                                        currently = "Aritao";
                                         ref.read(spotProvider.notifier).refreshSpot(data.municipalities["Aritao"]!.spots);
                                       });
-                                      Fluttertoast.showToast(msg: "Aritao");
                                     },
                                     child: CustomPaint(
                                       size: Size(500,(500*1).toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
@@ -157,9 +159,9 @@ class HomeView extends ConsumerStatefulWidget {
                                       }
                                       values[3] = true;
                                       setState(() {
+                                        currently = "Santa Fe";
                                         ref.read(spotProvider.notifier).refreshSpot(data.municipalities["Santa Fe"]!.spots);
                                       });
-                                      Fluttertoast.showToast(msg: "Santa Fe");
                                     },
                                     child: CustomPaint(
                                       size: Size(500,(500*1).toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
@@ -173,9 +175,9 @@ class HomeView extends ConsumerStatefulWidget {
                                       }
                                       values[4] = true;
                                       setState(() {
+                                        currently = "Dupax Del Sur";
                                         ref.read(spotProvider.notifier).refreshSpot(data.municipalities["Dupax Del Sur"]!.spots);
                                       });
-                                      Fluttertoast.showToast(msg: "Dupax Del Sur");
                                     },
                                     child: CustomPaint(
                                       size: Size(500,(500*1).toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
@@ -189,9 +191,9 @@ class HomeView extends ConsumerStatefulWidget {
                                       }
                                       values[5] = true;
                                       setState(() {
+                                        currently = "Alfonso Castaneda";
                                         ref.read(spotProvider.notifier).refreshSpot(data.municipalities["Alfonso Castaneda"]!.spots);
                                       });
-                                      Fluttertoast.showToast(msg: "Alfonso Castaneda");
                                     },
                                     child: CustomPaint(
                                       size: Size(500,(500*1).toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
@@ -206,9 +208,9 @@ class HomeView extends ConsumerStatefulWidget {
                                       values[6] = true;
 
                                       setState(() {
+                                        currently = "Dupax Del Norte";
                                         ref.read(spotProvider.notifier).refreshSpot(data.municipalities["Dupax Del Norte"]!.spots);
                                       });
-                                      Fluttertoast.showToast(msg: "Dupax Del Norte");
                                     },
                                     child: CustomPaint(
                                       size: Size(500,(500*1).toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
@@ -223,9 +225,9 @@ class HomeView extends ConsumerStatefulWidget {
                                       values[7] = true;
 
                                       setState(() {
+                                        currently = "Kasibu";
                                         ref.read(spotProvider.notifier).refreshSpot(data.municipalities["Kasibu"]!.spots);
                                       });
-                                      Fluttertoast.showToast(msg: "Kasibu");
                                     },
                                     child: CustomPaint(
                                       size: Size(500,(500*1).toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
@@ -240,9 +242,9 @@ class HomeView extends ConsumerStatefulWidget {
                                       values[8] = true;
 
                                       setState(() {
+                                        currently = "Bambang";
                                         ref.read(spotProvider.notifier).refreshSpot(data.municipalities["Bambang"]!.spots);
                                       });
-                                      Fluttertoast.showToast(msg: "Bambang");
                                     },
                                     child: CustomPaint(
                                       size: Size(500,(500*1).toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
@@ -257,9 +259,9 @@ class HomeView extends ConsumerStatefulWidget {
                                       values[9] = true;
 
                                       setState(() {
+                                        currently = "Bayombong";
                                         ref.read(spotProvider.notifier).refreshSpot(data.municipalities["Bayombong"]!.spots);
                                       });
-                                      Fluttertoast.showToast(msg: "Bayombong");
                                     },
                                     child: CustomPaint(
                                       size: Size(500,(500*1).toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
@@ -274,9 +276,9 @@ class HomeView extends ConsumerStatefulWidget {
                                       values[10] = true;
 
                                       setState(() {
+                                        currently = "Quezon";
                                         ref.read(spotProvider.notifier).refreshSpot(data.municipalities["Quezon"]!.spots);
                                       });
-                                      Fluttertoast.showToast(msg: "Quezon");
                                     },
                                     child: CustomPaint(
                                       size: Size(500,(500*1).toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
@@ -291,9 +293,9 @@ class HomeView extends ConsumerStatefulWidget {
                                       values[11] = true;
 
                                       setState(() {
+                                        currently = "Diadi";
                                         ref.read(spotProvider.notifier).refreshSpot(data.municipalities["Diadi"]!.spots);
                                       });
-                                      Fluttertoast.showToast(msg: "Diadi");
                                     },
                                     child: CustomPaint(
                                       size: Size(500,(500*1).toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
@@ -308,9 +310,9 @@ class HomeView extends ConsumerStatefulWidget {
                                       values[12] = true;
 
                                       setState(() {
+                                        currently = "Bagabag";
                                         ref.read(spotProvider.notifier).refreshSpot(data.municipalities["Bagabag"]!.spots);
                                       });
-                                      Fluttertoast.showToast(msg: "Bagabag");
 
                                     },
                                     child: CustomPaint(
@@ -326,9 +328,9 @@ class HomeView extends ConsumerStatefulWidget {
                                       values[13] = true;
 
                                       setState(() {
+                                        currently = "Solano";
                                         ref.read(spotProvider.notifier).refreshSpot(data.municipalities["Solano"]!.spots);
                                       });
-                                      Fluttertoast.showToast(msg: "Solano");
                                     },
                                     child: CustomPaint(
                                       size: Size(500,(500*1).toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
@@ -343,10 +345,9 @@ class HomeView extends ConsumerStatefulWidget {
                                       values[14] = true;
 
                                       setState(() {
+                                        currently = "Villaverde";
                                         ref.read(spotProvider.notifier).refreshSpot(data.municipalities["Villaverde"]!.spots);
-
                                       });
-                                      Fluttertoast.showToast(msg: "Villaverde");
                                     },
                                     child: CustomPaint(
                                       size: Size(500,(500*1).toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
@@ -371,7 +372,8 @@ class HomeView extends ConsumerStatefulWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              "Tourist Spots",
+                              currently == "" ? "Select a Municipality" :
+                              "Tourist Spots of $currently",
                               style: GoogleFonts.poppins(
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold,
@@ -404,7 +406,7 @@ class HomeView extends ConsumerStatefulWidget {
                                             overflow: TextOverflow.ellipsis,
                                           ),
                                         ),
-                                        SizedBox(width: 4,),
+                                        const SizedBox(width: 4,),
                                         ElevatedButton(
                                           onPressed: (){
                                             GoRouter.of(context).push("/guide", extra: ref.read(spotProvider.notifier).state.values.elementAt(index));
@@ -455,7 +457,7 @@ class HomeView extends ConsumerStatefulWidget {
           );
         },
       ),
-      drawer: AppDrawer()
+      drawer: const AppDrawer()
     );
   }
 }
@@ -471,6 +473,18 @@ class Layer1 extends CustomPainter{
 
   @override
   void paint(Canvas canvas, Size size) {
+
+    TextPainter textPainter = TextPainter(
+        text: TextSpan(
+          text: 'Kayapa',
+          style: TextStyle(
+            color:  values[0] ? Colors.white : Colors.black,
+            fontSize: 7,
+          ),
+        ),
+        textDirection: TextDirection.ltr,
+        textAlign: TextAlign.center
+    );
 
     Paint paint0 = Paint()
       ..color = values[0] ? Colors.redAccent : Colors.yellow
@@ -500,6 +514,13 @@ class Layer1 extends CustomPainter{
     canvas.drawPath(path0, paint0);
     canvas.drawPath(path0, strokePath);
 
+    textPainter.layout(
+      minWidth: 0,
+      maxWidth: size.width,
+    );
+    final offset = Offset(95 - (textPainter.width / 2), 105 - (textPainter.height / 2));
+    textPainter.paint(canvas,offset);
+
   }
 
   @override
@@ -519,6 +540,19 @@ class Layer2 extends CustomPainter{
 
   @override
   void paint(Canvas canvas, Size size) {
+
+    TextPainter textPainter = TextPainter(
+        text: TextSpan(
+          text: 'Amba-\nguio',
+          style: TextStyle(
+            color:  values[1] ? Colors.white : Colors.black,
+            fontSize: 7,
+          ),
+        ),
+        textDirection: TextDirection.ltr,
+        textAlign: TextAlign.center
+    );
+
     Paint paint1 = Paint()
       ..color = values[1] ? Colors.redAccent : Colors.yellow
       ..style = PaintingStyle.fill
@@ -540,6 +574,13 @@ class Layer2 extends CustomPainter{
 
     canvas.drawPath(path1, paint1);
     canvas.drawPath(path1, strokePath);
+
+    textPainter.layout(
+      minWidth: 0,
+      maxWidth: size.width,
+    );
+    final offset = Offset(127 - (textPainter.width / 2), 60 - (textPainter.height / 2));
+    textPainter.paint(canvas,offset);
   }
 
   @override
@@ -561,6 +602,18 @@ class Layer3 extends CustomPainter{
   @override
   void paint(Canvas canvas, Size size) {
 
+    TextPainter textPainter = TextPainter(
+        text: TextSpan(
+          text: 'Aritao',
+          style: TextStyle(
+            color:  values[2] ? Colors.white : Colors.black,
+            fontSize: 7,
+          ),
+        ),
+        textDirection: TextDirection.ltr,
+        textAlign: TextAlign.center
+    );
+
     Paint paint2 = Paint()
       ..color = values[2] ? Colors.redAccent : Colors.yellow
       ..style = PaintingStyle.fill
@@ -579,8 +632,17 @@ class Layer3 extends CustomPainter{
     path2.lineTo(size.width*0.3860000,size.height*0.3940000);
     path2.close();
 
+
     canvas.drawPath(path2, paint2);
     canvas.drawPath(path2, strokePath);
+
+    textPainter.layout(
+      minWidth: 0,
+      maxWidth: size.width,
+    );
+    final offset = Offset(115 - (textPainter.width / 2), 135 - (textPainter.height / 2));
+    textPainter.paint(canvas,offset);
+
 
   }
 
@@ -602,6 +664,18 @@ class Layer4 extends CustomPainter{
 
   @override
   void paint(Canvas canvas, Size size) {
+
+    TextPainter textPainter = TextPainter(
+        text: TextSpan(
+          text: 'Santa Fe',
+          style: TextStyle(
+            color:  values[3] ? Colors.white : Colors.black,
+            fontSize: 7,
+          ),
+        ),
+        textDirection: TextDirection.ltr,
+        textAlign: TextAlign.center
+    );
 
     Paint paint3 = Paint()
       ..color = values[3] ? Colors.redAccent : Colors.yellow
@@ -625,6 +699,13 @@ class Layer4 extends CustomPainter{
 
     canvas.drawPath(path3, paint3);
     canvas.drawPath(path3, strokePath);
+
+    textPainter.layout(
+      minWidth: 0,
+      maxWidth: size.width,
+    );
+    final offset = Offset(95 - (textPainter.width / 2), 155 - (textPainter.height / 2));
+    textPainter.paint(canvas,offset);
   }
 
   @override
@@ -646,6 +727,17 @@ class Layer5 extends CustomPainter{
   @override
   void paint(Canvas canvas, Size size) {
 
+    TextPainter textPainter = TextPainter(
+        text: TextSpan(
+          text: 'Dupax\nDel Sur',
+          style: TextStyle(
+            color:  values[4] ? Colors.white : Colors.black,
+            fontSize: 7,
+          ),
+        ),
+        textDirection: TextDirection.ltr,
+        textAlign: TextAlign.center
+    );
     Paint paint4 = Paint()
       ..color = values[4] ? Colors.redAccent : Colors.yellow
       ..style = PaintingStyle.fill
@@ -670,6 +762,15 @@ class Layer5 extends CustomPainter{
 
     canvas.drawPath(path4, paint4);
     canvas.drawPath(path4, strokePath);
+
+
+    textPainter.layout(
+      minWidth: 0,
+      maxWidth: size.width,
+    );
+    final offset = Offset(157 - (textPainter.width / 2), 165 - (textPainter.height / 2));
+    textPainter.paint(canvas,offset);
+
   }
 
   @override
@@ -689,6 +790,18 @@ class Layer6 extends CustomPainter{
 
   @override
   void paint(Canvas canvas, Size size) {
+
+    TextPainter textPainter = TextPainter(
+        text: TextSpan(
+          text: 'Alfonso\nCastaneda',
+          style: TextStyle(
+            color:  values[5] ? Colors.white : Colors.black,
+            fontSize: 7,
+          ),
+        ),
+        textDirection: TextDirection.ltr,
+        textAlign: TextAlign.center
+    );
 
     Paint paint5 = Paint()
       ..color = values[5] ? Colors.redAccent : Colors.yellow
@@ -710,6 +823,14 @@ class Layer6 extends CustomPainter{
 
     canvas.drawPath(path5, paint5);
     canvas.drawPath(path5, strokePath);
+
+    textPainter.layout(
+      minWidth: 0,
+      maxWidth: size.width,
+    );
+    final offset = Offset(200 - (textPainter.width / 2), 225 - (textPainter.height / 2));
+    textPainter.paint(canvas,offset);
+
   }
 
   @override
@@ -729,6 +850,18 @@ class Layer7 extends CustomPainter{
 
   @override
   void paint(Canvas canvas, Size size) {
+
+    TextPainter textPainter = TextPainter(
+        text: TextSpan(
+          text: 'Dupax\nDel Norte',
+          style: TextStyle(
+            color:  values[6] ? Colors.white : Colors.black,
+            fontSize: 6,
+          ),
+        ),
+        textDirection: TextDirection.ltr,
+        textAlign: TextAlign.center
+    );
 
     Paint paint6 = Paint()
       ..color = values[6] ? Colors.redAccent : Colors.yellow
@@ -753,6 +886,13 @@ class Layer7 extends CustomPainter{
     canvas.drawPath(path6, paint6);
     canvas.drawPath(path6, strokePath);
 
+    textPainter.layout(
+      minWidth: 0,
+      maxWidth: size.width,
+    );
+    final offset = Offset(182 - (textPainter.width / 2), 150 - (textPainter.height / 2));
+    textPainter.paint(canvas,offset);
+
   }
 
   @override
@@ -772,6 +912,18 @@ class Layer8 extends CustomPainter{
 
   @override
   void paint(Canvas canvas, Size size) {
+
+    TextPainter textPainter = TextPainter(
+        text: TextSpan(
+          text: 'Kasibu',
+          style: TextStyle(
+            color:  values[7] ? Colors.white : Colors.black,
+            fontSize: 7,
+          ),
+        ),
+        textDirection: TextDirection.ltr,
+        textAlign: TextAlign.center
+    );
 
     Paint paint7 = Paint()
       ..color = values[7] ? Colors.redAccent : Colors.yellow
@@ -799,6 +951,13 @@ class Layer8 extends CustomPainter{
     canvas.drawPath(path7, paint7);
     canvas.drawPath(path7, strokePath);
 
+    textPainter.layout(
+      minWidth: 0,
+      maxWidth: size.width,
+    );
+    final offset = Offset(208 - (textPainter.width / 2), 115 - (textPainter.height / 2));
+    textPainter.paint(canvas,offset);
+
   }
 
   @override
@@ -818,6 +977,18 @@ class Layer9 extends CustomPainter{
 
   @override
   void paint(Canvas canvas, Size size) {
+
+    TextPainter textPainter = TextPainter(
+        text: TextSpan(
+          text: 'Bambang',
+          style: TextStyle(
+            color:  values[8] ? Colors.white : Colors.black,
+            fontSize: 7,
+          ),
+        ),
+        textDirection: TextDirection.ltr,
+        textAlign: TextAlign.center
+    );
 
     Paint paint8 = Paint()
       ..color = values[8] ? Colors.redAccent : Colors.yellow
@@ -840,6 +1011,13 @@ class Layer9 extends CustomPainter{
 
     canvas.drawPath(path8, paint8);
     canvas.drawPath(path8, strokePath);
+
+    textPainter.layout(
+      minWidth: 0,
+      maxWidth: size.width,
+    );
+    final offset = Offset(145 - (textPainter.width / 2), 100 - (textPainter.height / 2));
+    textPainter.paint(canvas,offset);
   }
 
   @override
@@ -858,6 +1036,18 @@ class Layer10 extends CustomPainter{
 
   @override
   void paint(Canvas canvas, Size size) {
+
+    TextPainter textPainter = TextPainter(
+        text: TextSpan(
+          text: 'Bayombong',
+          style: TextStyle(
+            color:  values[9] ? Colors.white : Colors.black,
+            fontSize: 5,
+          ),
+        ),
+        textDirection: TextDirection.ltr,
+        textAlign: TextAlign.center
+    );
 
     Paint paint9 = Paint()
       ..color = values[9] ? Colors.redAccent : Colors.yellow
@@ -879,6 +1069,13 @@ class Layer10 extends CustomPainter{
 
     canvas.drawPath(path9, paint9);
     canvas.drawPath(path9, strokePath);
+
+    textPainter.layout(
+      minWidth: 0,
+      maxWidth: size.width,
+    );
+    final offset = Offset(150 - (textPainter.width / 2), 77 - (textPainter.height / 2));
+    textPainter.paint(canvas,offset);
   }
 
   @override
@@ -898,6 +1095,18 @@ class Layer11 extends CustomPainter{
 
   @override
   void paint(Canvas canvas, Size size) {
+
+    TextPainter textPainter = TextPainter(
+        text: TextSpan(
+          text: 'Quezon',
+          style: TextStyle(
+            color:  values[10] ? Colors.white : Colors.black,
+            fontSize: 7,
+          ),
+        ),
+        textDirection: TextDirection.ltr,
+        textAlign: TextAlign.center
+    );
 
     Paint paint10 = Paint()
       ..color = values[10] ? Colors.redAccent : Colors.yellow
@@ -922,6 +1131,13 @@ class Layer11 extends CustomPainter{
     canvas.drawPath(path10, paint10);
     canvas.drawPath(path10, strokePath);
 
+    textPainter.layout(
+      minWidth: 0,
+      maxWidth: size.width,
+    );
+    final offset = Offset(193 - (textPainter.width / 2), 77 - (textPainter.height / 2));
+    textPainter.paint(canvas,offset);
+
   }
 
   @override
@@ -941,7 +1157,17 @@ class Layer12 extends CustomPainter{
 
   @override
   void paint(Canvas canvas, Size size) {
-
+    TextPainter textPainter = TextPainter(
+        text: TextSpan(
+          text: 'Diadi',
+          style: TextStyle(
+            color:  values[11] ? Colors.white : Colors.black,
+            fontSize: 7,
+          ),
+        ),
+        textDirection: TextDirection.ltr,
+        textAlign: TextAlign.center
+    );
     Paint paint11 = Paint()
       ..color = values[11] ? Colors.redAccent : Colors.yellow
       ..style = PaintingStyle.fill
@@ -964,6 +1190,13 @@ class Layer12 extends CustomPainter{
 
     canvas.drawPath(path11, paint11);
     canvas.drawPath(path11, strokePath);
+
+    textPainter.layout(
+      minWidth: 0,
+      maxWidth: size.width,
+    );
+    final offset = Offset(208 - (textPainter.width / 2), 40 - (textPainter.height / 2));
+    textPainter.paint(canvas,offset);
   }
 
   @override
@@ -983,6 +1216,18 @@ class Layer13 extends CustomPainter{
 
   @override
   void paint(Canvas canvas, Size size) {
+
+    TextPainter textPainter = TextPainter(
+        text: TextSpan(
+          text: 'Bagabag',
+          style: TextStyle(
+            color:  values[12] ? Colors.white : Colors.black,
+            fontSize: 5,
+          ),
+        ),
+        textDirection: TextDirection.ltr,
+        textAlign: TextAlign.center
+    );
 
     Paint paint12 = Paint()
       ..color = values[12] ? Colors.redAccent : Colors.yellow
@@ -1005,6 +1250,13 @@ class Layer13 extends CustomPainter{
     canvas.drawPath(path12, paint12);
     canvas.drawPath(path12, strokePath);
 
+    textPainter.layout(
+      minWidth: 0,
+      maxWidth: size.width,
+    );
+    final offset = Offset(187 - (textPainter.width / 2), 50 - (textPainter.height / 2));
+    textPainter.paint(canvas,offset);
+
   }
 
   @override
@@ -1024,6 +1276,18 @@ class Layer14 extends CustomPainter{
 
   @override
   void paint(Canvas canvas, Size size) {
+
+    TextPainter textPainter = TextPainter(
+        text: TextSpan(
+          text: 'Solano',
+          style: TextStyle(
+            color:  values[13] ? Colors.white : Colors.black,
+            fontSize: 6,
+          ),
+        ),
+        textDirection: TextDirection.ltr,
+        textAlign: TextAlign.center
+    );
 
     Paint paint13 = Paint()
       ..color = values[13] ? Colors.redAccent : Colors.yellow
@@ -1047,6 +1311,13 @@ class Layer14 extends CustomPainter{
     canvas.drawPath(path13, paint13);
     canvas.drawPath(path13, strokePath);
 
+    textPainter.layout(
+      minWidth: 0,
+      maxWidth: size.width,
+    );
+    final offset = Offset(165 - (textPainter.width / 2), 60 - (textPainter.height / 2));
+    textPainter.paint(canvas,offset);
+
   }
 
   @override
@@ -1066,6 +1337,18 @@ class Layer15 extends CustomPainter{
 
   @override
   void paint(Canvas canvas, Size size) {
+
+    TextPainter textPainter = TextPainter(
+        text: TextSpan(
+          text: 'Villaverde',
+          style: TextStyle(
+            color:  values[14] ? Colors.white : Colors.black,
+            fontSize: 5,
+          ),
+        ),
+        textDirection: TextDirection.ltr,
+        textAlign: TextAlign.center
+    );
 
     Paint paint14 = Paint()
       ..color = values[14] ? Colors.redAccent : Colors.yellow
@@ -1087,6 +1370,13 @@ class Layer15 extends CustomPainter{
 
     canvas.drawPath(path14, paint14);
     canvas.drawPath(path14, strokePath);
+
+    textPainter.layout(
+      minWidth: 0,
+      maxWidth: size.width,
+    );
+    final offset = Offset(158 - (textPainter.width / 2), 43 - (textPainter.height / 2));
+    textPainter.paint(canvas,offset);
 
 
   }

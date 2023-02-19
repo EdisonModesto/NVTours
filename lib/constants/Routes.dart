@@ -9,7 +9,7 @@ import '../features/2. Home/HomeView.dart';
 
 class Routes{
   final GoRouter router = GoRouter(
-    initialLocation: "/Splash",
+    initialLocation: "/",
     routes: [
       GoRoute(
         path: '/Splash',

@@ -19,6 +19,7 @@ class AppDrawer extends ConsumerStatefulWidget {
 }
 
 class _AppDrawerState extends ConsumerState<AppDrawer> {
+
   @override
   Widget build(BuildContext context) {
     var municipality = ref.watch(municipalityProvider);
@@ -44,20 +45,19 @@ class _AppDrawerState extends ConsumerState<AppDrawer> {
               Expanded(
                 child: municipality.when(
                   data: (data){
-                    SplayTreeMap<String, Municipality> sortedMunicipalities = SplayTreeMap.from(data.municipalities);
                     return ListView.builder(
-                      itemCount: sortedMunicipalities.length,
+                      itemCount: data.municipalities.length,
                       itemBuilder: (builder, index){
                         return ListTile(
                           onTap: (){
-                            print(sortedMunicipalities.values.elementAt(index).spots.keys);
-                            ref.read(spotProvider.notifier).refreshSpot(sortedMunicipalities.values.elementAt(index).spots);
+                            print(data.municipalities.values.elementAt(index).spots.keys);
+                            ref.read(spotProvider.notifier).refreshSpot(data.municipalities.values.elementAt(index).spots);
                             Navigator.pop(context);
                             context.go("/");
                      //      GoRouter.of(context).push("/");
                           },
                           title: Text(
-                            sortedMunicipalities.keys.elementAt(index),
+                            data.municipalities.keys.elementAt(index),
                             style: GoogleFonts.poppins(
                               fontSize: 16,
                             ),

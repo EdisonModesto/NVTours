@@ -32,12 +32,13 @@ class Spot {
   final List<String> pictures;
   final List<String> guides;
   final List<String> eateries;
+  final List<String> itineraries;
   final String coords;
   final List<String> tips;
   final String description;
 
 
-  Spot({required this.name, required this.pictures, required this.guides, required this.eateries, required this.coords, required this.tips,required this.description});
+  Spot({required this.name, required this.pictures, required this.guides, required this.eateries, required this.itineraries, required this.coords, required this.tips,required this.description});
 
   factory Spot.fromJson(String name, Map<String, dynamic> json) {
     return Spot(
@@ -45,6 +46,7 @@ class Spot {
       pictures: List<String>.from(json['Pictures']),
       guides: List<String>.from(json['Guides']),
       eateries: List<String>.from(json['Eateries']),
+      itineraries: List<String>.from(json['itinreraries']),
       coords: json["Coords"],
       tips: List<String>.from(json['Tips']),
       description: json['Description'],

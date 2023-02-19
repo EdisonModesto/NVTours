@@ -102,7 +102,7 @@ class _GuideViewState extends ConsumerState<GuideView> {
                                 .push('/Info', extra: widget.spot);
                           },
                           child: Container(
-                              height: 175,
+                              height: 200,
                               width: 1000,
                               decoration: BoxDecoration(
                                 color: AppColors().cardColor,
