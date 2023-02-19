@@ -360,33 +360,49 @@ class HomeView extends ConsumerStatefulWidget {
                         ),
                       ),
                       Container(
-                        height: 225,
+                        height: 200,
                         width: 1000,
                         decoration: BoxDecoration(
                           color: AppColors().cardColor,
                           borderRadius: BorderRadius.circular(12),
                         ),
                         padding: const EdgeInsets.only(left: 30, right: 30, top: 20, bottom: 20),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              currently == "" ? "Select a Municipality" :
-                              "Tourist Spots of $currently",
-                              style: GoogleFonts.poppins(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
+                        child: SingleChildScrollView(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                currently == "" ? "Select a Municipality" :
+                                "Municipality of $currently",
+                                style: GoogleFonts.poppins(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
-                            ),
-                            const SizedBox(height: 10),
-                            Expanded(
-                              child: ListView.separated(
-                                itemCount: ref.read(spotProvider.notifier).state.length,
-                                itemBuilder: (context, index){
+                              const SizedBox(height: 5),
+                              Text(
+                                currently == "" ? "Select a Municipality to see its description" :
+                                data.municipalities[currently]!.description,
+                                style: GoogleFonts.poppins(
+                                  fontSize: 14,
+                                ),
+                              ),
+                              const SizedBox(height: 10),
+                              Text(
+                                "Tourist Spots",
+                                style: GoogleFonts.poppins(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              const SizedBox(height: 10),
+                              Column(
+                                children: List.generate(ref.read(spotProvider.notifier).state.length, (index){
                                   return Container(
                                     height: 50,
                                     width: 1000,
+                                    margin: EdgeInsets.only(bottom: 10),
                                     decoration: BoxDecoration(
                                       color: Colors.white,
                                       borderRadius: BorderRadius.circular(10),
@@ -426,13 +442,10 @@ class HomeView extends ConsumerStatefulWidget {
                                       ],
                                     ),
                                   );
-                                },
-                                separatorBuilder: (context, index){
-                                  return const SizedBox(height: 5,);
-                                },
-                              ),
-                            )
-                          ],
+                                })
+                              )
+                            ],
+                          ),
                         ),
                       ),
                     ],
@@ -518,7 +531,7 @@ class Layer1 extends CustomPainter{
       minWidth: 0,
       maxWidth: size.width,
     );
-    final offset = Offset(95 - (textPainter.width / 2), 105 - (textPainter.height / 2));
+    final offset = Offset(95 - (textPainter.width / 2), 115 - (textPainter.height / 2));
     textPainter.paint(canvas,offset);
 
   }
@@ -579,7 +592,7 @@ class Layer2 extends CustomPainter{
       minWidth: 0,
       maxWidth: size.width,
     );
-    final offset = Offset(127 - (textPainter.width / 2), 60 - (textPainter.height / 2));
+    final offset = Offset(127 - (textPainter.width / 2), 70 - (textPainter.height / 2));
     textPainter.paint(canvas,offset);
   }
 
@@ -640,7 +653,7 @@ class Layer3 extends CustomPainter{
       minWidth: 0,
       maxWidth: size.width,
     );
-    final offset = Offset(115 - (textPainter.width / 2), 135 - (textPainter.height / 2));
+    final offset = Offset(115 - (textPainter.width / 2), 145 - (textPainter.height / 2));
     textPainter.paint(canvas,offset);
 
 
@@ -704,7 +717,7 @@ class Layer4 extends CustomPainter{
       minWidth: 0,
       maxWidth: size.width,
     );
-    final offset = Offset(95 - (textPainter.width / 2), 155 - (textPainter.height / 2));
+    final offset = Offset(95 - (textPainter.width / 2), 165 - (textPainter.height / 2));
     textPainter.paint(canvas,offset);
   }
 
@@ -768,7 +781,7 @@ class Layer5 extends CustomPainter{
       minWidth: 0,
       maxWidth: size.width,
     );
-    final offset = Offset(157 - (textPainter.width / 2), 165 - (textPainter.height / 2));
+    final offset = Offset(157 - (textPainter.width / 2), 175 - (textPainter.height / 2));
     textPainter.paint(canvas,offset);
 
   }
@@ -828,7 +841,7 @@ class Layer6 extends CustomPainter{
       minWidth: 0,
       maxWidth: size.width,
     );
-    final offset = Offset(200 - (textPainter.width / 2), 225 - (textPainter.height / 2));
+    final offset = Offset(200 - (textPainter.width / 2), 245 - (textPainter.height / 2));
     textPainter.paint(canvas,offset);
 
   }
@@ -890,7 +903,7 @@ class Layer7 extends CustomPainter{
       minWidth: 0,
       maxWidth: size.width,
     );
-    final offset = Offset(182 - (textPainter.width / 2), 150 - (textPainter.height / 2));
+    final offset = Offset(182 - (textPainter.width / 2), 160 - (textPainter.height / 2));
     textPainter.paint(canvas,offset);
 
   }
@@ -955,7 +968,7 @@ class Layer8 extends CustomPainter{
       minWidth: 0,
       maxWidth: size.width,
     );
-    final offset = Offset(208 - (textPainter.width / 2), 115 - (textPainter.height / 2));
+    final offset = Offset(208 - (textPainter.width / 2), 125 - (textPainter.height / 2));
     textPainter.paint(canvas,offset);
 
   }
@@ -1016,7 +1029,7 @@ class Layer9 extends CustomPainter{
       minWidth: 0,
       maxWidth: size.width,
     );
-    final offset = Offset(145 - (textPainter.width / 2), 100 - (textPainter.height / 2));
+    final offset = Offset(145 - (textPainter.width / 2), 110 - (textPainter.height / 2));
     textPainter.paint(canvas,offset);
   }
 
@@ -1074,7 +1087,7 @@ class Layer10 extends CustomPainter{
       minWidth: 0,
       maxWidth: size.width,
     );
-    final offset = Offset(150 - (textPainter.width / 2), 77 - (textPainter.height / 2));
+    final offset = Offset(150 - (textPainter.width / 2), 85 - (textPainter.height / 2));
     textPainter.paint(canvas,offset);
   }
 
@@ -1135,7 +1148,7 @@ class Layer11 extends CustomPainter{
       minWidth: 0,
       maxWidth: size.width,
     );
-    final offset = Offset(193 - (textPainter.width / 2), 77 - (textPainter.height / 2));
+    final offset = Offset(193 - (textPainter.width / 2), 85 - (textPainter.height / 2));
     textPainter.paint(canvas,offset);
 
   }
@@ -1195,7 +1208,7 @@ class Layer12 extends CustomPainter{
       minWidth: 0,
       maxWidth: size.width,
     );
-    final offset = Offset(208 - (textPainter.width / 2), 40 - (textPainter.height / 2));
+    final offset = Offset(208 - (textPainter.width / 2), 43 - (textPainter.height / 2));
     textPainter.paint(canvas,offset);
   }
 
@@ -1254,7 +1267,7 @@ class Layer13 extends CustomPainter{
       minWidth: 0,
       maxWidth: size.width,
     );
-    final offset = Offset(187 - (textPainter.width / 2), 50 - (textPainter.height / 2));
+    final offset = Offset(187 - (textPainter.width / 2), 55 - (textPainter.height / 2));
     textPainter.paint(canvas,offset);
 
   }
@@ -1315,7 +1328,7 @@ class Layer14 extends CustomPainter{
       minWidth: 0,
       maxWidth: size.width,
     );
-    final offset = Offset(165 - (textPainter.width / 2), 60 - (textPainter.height / 2));
+    final offset = Offset(165 - (textPainter.width / 2), 70 - (textPainter.height / 2));
     textPainter.paint(canvas,offset);
 
   }
@@ -1375,7 +1388,7 @@ class Layer15 extends CustomPainter{
       minWidth: 0,
       maxWidth: size.width,
     );
-    final offset = Offset(158 - (textPainter.width / 2), 43 - (textPainter.height / 2));
+    final offset = Offset(158 - (textPainter.width / 2), 48 - (textPainter.height / 2));
     textPainter.paint(canvas,offset);
 
 

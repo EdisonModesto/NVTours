@@ -11,6 +11,7 @@ class NPointRepository{
     if (response.statusCode == 200) {
       //print(response.body);
       final jsonData = jsonDecode(response.body);
+      print(jsonData);
       final location = MunicipalitiesModel.fromJson(jsonData);
       return location;
     } else {

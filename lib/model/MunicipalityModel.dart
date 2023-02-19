@@ -14,16 +14,17 @@ class MunicipalitiesModel {
 
 class Municipality {
   final String name;
+  final String description;
   final Map<String, Spot> spots;
 
-  Municipality({required this.name, required this.spots});
+  Municipality({required this.name, required this.description, required this.spots});
 
   factory Municipality.fromJson(String name, Map<String, dynamic> json) {
     Map<String, Spot> spots = {};
     json['Spots'].forEach((name, data) {
       spots[name] = Spot.fromJson(name, data);
     });
-    return Municipality(name: name, spots: spots);
+    return Municipality(name: name, spots: spots, description: json['desc']);
   }
 }
 
