@@ -1,0 +1,935 @@
+{
+  "Bayombong": {
+    "desc": "text",
+    "Spots": {
+      "Saint Dominic Cathedral": {
+        "Description": "Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum",
+        "Tags": [
+          "Search",
+        ],
+        "Pictures": [
+          "https://1.bp.blogspot.com/-ZJikdklbDII/T-apwjEOQVI/AAAAAAAAH5k/KpNDXJSYStk/s1600/00.jpg",
+          "https://4.bp.blogspot.com/-zhMwg4e6ogM/T-apwTvWseI/AAAAAAAAH5Y/S64Si52Rrzo/s1600/01.jpg",
+          "https://2.bp.blogspot.com/-pGpWOmqh0EU/T-apwDodyjI/AAAAAAAAH5M/h-KFvs07G9s/s1600/02.jpg",
+          "https://1.bp.blogspot.com/-ZJikdklbDII/T-apwjEOQVI/AAAAAAAAH5k/KpNDXJSYStk/s1600/00.jpg",
+          "https://4.bp.blogspot.com/-zhMwg4e6ogM/T-apwTvWseI/AAAAAAAAH5Y/S64Si52Rrzo/s1600/01.jpg",
+          "https://www.dropbox.com/s/ti1cyu69ho1pf7y/Frame%2062.png?dl=1"
+        ],
+        "Guides": [
+          "Person Name,Contact No."
+        ],
+        "Hotlines": [
+          "Hotline Name,Contact No."
+        ],
+        "Agencies": [
+          "Agency Name"
+        ],
+        "Eateries": [
+          "Resto name,16.4835594,121.1504428",
+          "Name,16.4835594,121.1504428",
+          "Name,16.4835594,121.1504428",
+          "Name,16.4835594,121.1504428"
+        ],
+        "itinreraries": [
+          "Resto name,16.4835594,121.1504428",
+          "Name,16.4835594,121.1504428",
+          "Name,16.4835594,121.1504428",
+          "Name,16.4835594,121.1504428"
+        ],
+        "Coords": "16.4835594,121.1504428",
+        "Tips": [
+          "Tipid tip number 1",
+          "Tip 2"
+        ]
+      },
+      "Provincial Capitol": {
+        "Description": "Lorem Ipsum",
+        "Tags": [
+          "SearchTest",
+        ],
+        "Pictures": [
+          "url2"
+        ],
+        "Guides": [
+          "Person Name,Contact No."
+        ],
+        "Hotlines": [
+          "Hotline Name,Contact No."
+        ],
+        "Agencies": [
+          "Agency Name"
+        ],
+        "Eateries": [
+          "Resto name,16.4835594,121.1504428"
+        ],
+        "itinreraries": [
+          "Resto name,16.4835594,121.1504428",
+          "Name,16.4835594,121.1504428",
+          "Name,16.4835594,121.1504428",
+          "Name,16.4835594,121.1504428"
+        ],
+        "Coords": "16.4879662,121.1575606",
+        "Tips": [
+          "Tip 1",
+          "Tip 2"
+        ]
+      },
+      "Bangaan Hill": {
+        "Description": "Lorem Ipsum",
+        "Tags": [
+          "SearchTest",
+        ],
+        "Pictures": [
+          "https://www.dropbox.com/s/wnj0em90t9lzpwc/DSC_0200.JPG?dl=1",
+          "url2"
+        ],
+        "Guides": [
+          "Vince,21111."
+        ],
+        "Hotlines": [
+          "Hotline Name,Contact No."
+        ],
+        "Agencies": [
+          "Agency Name"
+        ],
+        "Eateries": [
+          "Resto name,16.4835594,121.1504428"
+        ],
+        "itinreraries": [
+          "Resto name,16.4835594,121.1504428",
+          "Name,16.4835594,121.1504428",
+          "Name,16.4835594,121.1504428",
+          "Name,16.4835594,121.1504428"
+        ],
+        "Coords": "16.4879662,121.1575606",
+        "Tips": [
+          "Tip 1",
+          "Tip 2"
+        ]
+      },
+      "People's Museum": {
+        "Description": "Lorem Ipsum",
+        "Tags": [
+          "SearchTest",
+        ],
+        "Pictures": [
+          "url1",
+          "url2"
+        ],
+        "Guides": [
+          "Person Name,Contact No."
+        ],
+        "Hotlines": [
+          "Hotline Name,Contact No."
+        ],
+        "Agencies": [
+          "Agency Name"
+        ],
+        "Eateries": [
+          "Resto name,16.4835594,121.1504428"
+        ],
+        "itinreraries": [
+          "Resto name,16.4835594,121.1504428",
+          "Name,16.4835594,121.1504428",
+          "Name,16.4835594,121.1504428",
+          "Name,16.4835594,121.1504428"
+        ],
+        "Coords": "16.4835221,121.1477692",
+        "Tips": [
+          "Tip 1",
+          "Tip 2"
+        ]
+      }
+    }
+  },
+  "Ambaguio": {
+    "desc": "text",
+    "Spots": {
+      "Mount Pulag": {
+        "Description": "Lorem Ipsum",
+        "Tags": [
+          "SearchTest",
+        ],
+        "Pictures": [
+          "url1",
+          "url2"
+        ],
+        "Guides": [
+          "Person Name,Contact No."
+        ],
+        "Hotlines": [
+          "Hotline Name,Contact No."
+        ],
+        "Agencies": [
+          "Agency Name"
+        ],
+        "Eateries": [
+          "Resto name,16.4835594,121.1504428"
+        ],
+        "itinreraries": [
+          "Resto name,16.4835594,121.1504428",
+          "Name,16.4835594,121.1504428",
+          "Name,16.4835594,121.1504428",
+          "Name,16.4835594,121.1504428"
+        ],
+        "Coords": "16.548203,120.9319858",
+        "Tips": [
+          "Tip 1",
+          "Tip 2"
+        ]
+      }
+    }
+  },
+  "Kayapa": {
+    "desc": "text",
+    "Spots": {
+      "Mount Pulag": {
+        "Description": "Lorem Ipsum",
+        "Tags": [
+          "SearchTest",
+        ],
+        "Pictures": [
+          "url1",
+          "url2"
+        ],
+        "Guides": [
+          "Person Name,Contact No."
+        ],
+        "Hotlines": [
+          "Hotline Name,Contact No."
+        ],
+        "Agencies": [
+          "Agency Name"
+        ],
+        "Eateries": [
+          "Resto name,16.4835594,121.1504428"
+        ],
+        "itinreraries": [
+          "Resto name,16.4835594,121.1504428",
+          "Name,16.4835594,121.1504428",
+          "Name,16.4835594,121.1504428",
+          "Name,16.4835594,121.1504428"
+        ],
+        "Coords": "16.548203,120.9319858",
+        "Tips": [
+          "Tip 1",
+          "Tip 2"
+        ]
+      }
+    }
+  },
+  "Santa Fe": {
+    "desc": "text",
+    "Spots": {
+      "Battle Pass": {
+        "Description": "Lorem Ipsum",
+        "Tags": [
+          "SearchTest",
+        ],
+        "Pictures": [
+          "url1",
+          "url2"
+        ],
+        "Guides": [
+          "Person Name,Contact No."
+        ],
+        "Hotlines": [
+          "Hotline Name,Contact No."
+        ],
+        "Agencies": [
+          "Agency Name"
+        ],
+        "Eateries": [
+          "Resto name,16.4835594,121.1504428"
+        ],
+        "itinreraries": [
+          "Resto name,16.4835594,121.1504428",
+          "Name,16.4835594,121.1504428",
+          "Name,16.4835594,121.1504428",
+          "Name,16.4835594,121.1504428"
+        ],
+        "Coords": "16.1336617,120.9279166",
+        "Tips": [
+          "Tip 1",
+          "Tip 2"
+        ]
+      }
+    }
+  },
+  "Aritao": {
+    "desc": "text",
+    "Spots": {
+      "Mount Malussong": {
+        "Description": "Lorem Ipsum",
+        "Tags": [
+          "SearchTest",
+        ],
+        "Pictures": [
+          "https://www.dropbox.com/s/7brh33tggsk8x9r/Mt.%20Malussong.png?dl=1",
+          "url2"
+        ],
+        "Guides": [
+          "Person Name,Contact No."
+        ],
+        "Hotlines": [
+          "Hotline Name,Contact No."
+        ],
+        "Agencies": [
+          "Agency Name"
+        ],
+        "Eateries": [
+          "Victoria's Pizza, 16.295521465479943, 121.03379398581393",
+          "Mary An's Restaurant, 16.296839583159432, 121.03684097525503",
+          "Kayo Grill, 16.301741255379614, 121.03357940910476",
+          "Hunger Box, 16.299249244069557, 121.03353649376066",
+          "TA-Q-TWINS, 16.29601189896856, 121.02694094178018",
+          "The Noodle House, 16.297211589369574, 121.03381812570807",
+          "Sip and Dip Tea Lounge, 16.296789381576353, 121.0341292619527",
+          "One Pares, 16.299907647930848, 121.03633873162859",
+          "Kusina Ni Kuya,16.30026238134278, 121.03956537347602",
+          "Jaja's Grill Spot Samngupsap, 16.30026238134278, 121.03956537347602",
+          "Kusina Lorenza, 16.311029382141218, 121.04657202952966",
+          "Ethel Grilled and Restaurant, 16.30565684150625, 121.04236632579523",
+          "Stone-8 Villega's Farm and Restaurant, 16.30277357733808, 121.05052024123222",
+          "Hilltop Refreshment, 16.29811907568595, 121.05219393966155",
+          "Tengoku, 16.301748674427607, 121.04074906308593",
+          "Blend and Brews, 16.296098569020682, 121.0340606035223",
+          "Lorena's Letchon and Restaurant, 16.296098569020682, 121.0340606035223"
+        ],
+        "itinreraries": [
+          "Resto name,16.4835594,121.1504428",
+          "Name,16.4835594,121.1504428",
+          "Name,16.4835594,121.1504428",
+          "Name,16.4835594,121.1504428"
+        ],
+        "Coords": "16.32125920430005, 121.02608501007589",
+        "Tips": [
+          "Tip 1",
+          "Tip 2"
+        ]
+      },
+      "Balay Marino": {
+        "Description": "Balay Marino is located at Purok Ilang-Ilang Tucanon, Aritao, Nueva Vizcaya. It is own and managed by Mrs. Ma. Lyndee Maye Ramos. They decided to called it Balay marino because her husband is a Marine. They started to develop this place last August 5 2022 and finished developing November 10 2022, and started operating last November 25 the same year. This place wa build for relaxing, unwinding, and create a strong bond with your family and friends.                                                          Entrance Fees:                                             Adult(Swimming Day Time) -100             Adult(Swimming Night Time) -130                                                    Children(Swimming Day Time) -80    Children(Swimming Night Time)- 120    ",
+        "Tags": [
+          "SearchTest",
+        ],
+        "Pictures": [
+          "https://www.dropbox.com/s/jouyiusn4qc3vyi/16.jpg?dl=1",
+          "https://www.dropbox.com/s/z7l0ue19lnpd1bb/25.jpg?dl=1",
+          "https://www.dropbox.com/s/vb5phh9eyef2iwl/1.jpg?dl=1",
+          "https://www.dropbox.com/s/xsjqtr6t4j6fou1/9.jpg?dl=1",
+          "https://www.dropbox.com/s/qblzp3h39ztbccd/22.jpg?dl=1",
+          "https://www.dropbox.com/s/xz5wdo8ki6m532o/20.jpg?dl=1"
+        ],
+        "Guides": [
+          "Person Name, Contact"
+        ],
+        "Hotlines": [
+          "MDRRMO- 09979722741",
+          "RHU- 09673053125",
+          "PNP- 09164956244",
+          "BFP- 09173178201"
+        ],
+        "Agencies": [
+          "Agency Name"
+        ],
+        "Eateries": [
+          "Cacheros Farm, 16.298948038082145, 121.05142950998804",
+          "Hilltop Refreshment, 16.29811907568595, 121.05219393966155",
+          "Stone-8 Villega's Farm and Restaurant, 16.30277357733808, 121.05052024123222",
+          "Kusina Lorenza, 16.31187116119155, 121.04631185518883"
+        ],
+        "itinreraries": [
+          "Casa Espanola, 16.292928969883896, 121.05556279414303",
+          "Hotel Paula Bed and Breakfast, 16.29715122848237, 121.03554180662519",
+          "Leana's Hotel, 16.31947129686722, 121.05063956112235"
+        ],
+        "Coords": "16.282379003617546, 121.0541390981481",
+        "Tips": [
+          "~Must try Their Pancit Bihon Sharing good for 4-5 person for only 400 pesos.",
+          "~They can also cater Paluto depending on your cravings.",
+          "~No entrance Fees for Dinners.",
+          "~Free Wifi",
+          "~Can satisfy you depending on your cravings",
+          "~Cottages rate for 15pax is 1000 pesos only with griller and sinks.",
+          "~Suveniers are also available like mugs, keychains, t-shirts, umbrella, ref magnets, and hand made bags.",
+          "~For Commuters Tricycle fare from Poblacion Aritao to Balay Marino is 30 pesos per head. Prices may vary if you are alone."
+        ]
+      },
+      "Paradise Agri-Tourism Farm": {
+        "Description": "Established in 2020, Paradise Agri-Tourism Farm is located at Sitio Mangga, Yaway Aritao, Nueva Vizcaya a 30 minutes drive from the Aritao Center. It rests on a 4-hectares lush green forest with the stunning view of the magnificent mountains, fresh air, and uplifting life-giving energy radiating around the natural property. Surrounded by a mix manicured grass lawns and tropical plants, the shaded nipa hut set the mood for relaxed stay in touch with nature. If you value security, relaxation, privacy and quality time with your loved ones or friend, then this place will be a treat especially for those who are seeking refuge from the usual city noise.                                                   Entrance Fees:                                             Adult- 50                                                          1-5 years old- Free Entrance ",
+        "Tags": [
+          "SearchTest",
+        ],
+        "Pictures": [
+          "https://www.dropbox.com/s/jouyiusn4qc3vyi/16.jpg?dl=1"
+        ],
+        "Guides": [
+          "Hotline Name,Contact No."
+        ],
+        "Hotlines": [
+          "MDRRMO- 09979722741",
+          "RHU- 09673053125",
+          "PNP- 09164956244",
+          "BFP- 09173178201"
+        ],
+        "Agencies": [
+          "Agency Name"
+        ],
+        "Eateries": [
+          "Cacheros Farm, 16.298948038082145, 121.05142950998804",
+          "Hilltop Refreshment, 16.29811907568595, 121.05219393966155",
+          "Stone-8 Villega's Farm and Restaurant, 16.30277357733808, 121.05052024123222",
+          "Kusina Lorenza, 16.31187116119155, 121.04631185518883",
+          "Balay Marino, 16.282317212493655, 121.0543214883598"
+        ],
+        "itinreraries": [
+          "Casa Espanola, 16.292928969883896, 121.05556279414303",
+          "Hotel Paula Bed and Breakfast, 16.29715122848237, 121.03554180662519",
+          "Leana's Hotel, 16.31947129686722, 121.05063956112235",
+          "Balay MARINO, 16.282317212493655, 121.0543214883598"
+        ],
+        "Coords": "16.21024086813874, 121.039247623314",
+        "Tips": [
+          "~Must bring everything because there are no available restaurants nearby.",
+          "~There is also a canteen in the exact area.",
+          "~Experience their Fruit Picking (seasonal) and their catch and pay fishing",
+          "~Want a little adventure, climb their giant balite tree, and visit their little cave. ",
+          "~Experience their very natural water pool. The water of the pool came from the mountains where in they dont put clorine in it unlike other resorts.",
+          "~Experience a very nice and cold water from the mountains. ",
+          "~Nature tripping Vibe.",
+          "~Cottages rates are very affordable for as low as 300, 500, and 800 pesos only"
+        ]
+      }
+    }
+  },
+  "Bambang": {
+    "desc": "text",
+    "Spots": {
+      "Bambang Integrated Agritourism and Learning Site": {
+        "Description": "Lorem Ipsum",
+        "Tags": [
+          "SearchTest",
+        ],
+        "Pictures": [
+          "url1",
+          "url2"
+        ],
+        "Guides": [
+          "Person Name,Contact No."
+        ],
+        "Hotlines": [
+          "Hotline Name,Contact No."
+        ],
+        "Agencies": [
+          "Agency Name"
+        ],
+        "Eateries": [
+          "Resto name,16.4835594,121.1504428"
+        ],
+        "itinreraries": [
+          "Resto name,16.4835594,121.1504428",
+          "Name,16.4835594,121.1504428",
+          "Name,16.4835594,121.1504428",
+          "Name,16.4835594,121.1504428"
+        ],
+        "Coords": "16.351254,121.1132863",
+        "Tips": [
+          "Tip 1",
+          "Tip 2"
+        ]
+      }
+    }
+  },
+  "Dupax Del Sur": {
+    "desc": "text",
+    "Spots": {
+      "Saint Vincent Ferrer Church": {
+        "Description": "Lorem Ipsum",
+        "Tags": [
+          "SearchTest",
+        ],
+        "Pictures": [
+          "url1",
+          "url2"
+        ],
+        "Guides": [
+          "Person Name,Contact No."
+        ],
+        "Hotlines": [
+          "Hotline Name,Contact No."
+        ],
+        "Agencies": [
+          "Agency Name"
+        ],
+        "Eateries": [
+          "Resto name,16.4835594,121.1504428"
+        ],
+        "itinreraries": [
+          "Resto name,16.4835594,121.1504428",
+          "Name,16.4835594,121.1504428",
+          "Name,16.4835594,121.1504428",
+          "Name,16.4835594,121.1504428"
+        ],
+        "Coords": "15.5234336,119.6913464",
+        "Tips": [
+          "Tip 1",
+          "Tip 2"
+        ]
+      }
+    }
+  },
+  "Dupax Del Norte": {
+    "desc": "text",
+    "Spots": {
+      "Binuangan Sea of Clouds": {
+        "Description": "Lorem Ipsum",
+        "Tags": [
+          "SearchTest",
+        ],
+        "Pictures": [
+          "url1",
+          "url2"
+        ],
+        "Guides": [
+          "Person Name,Contact No."
+        ],
+        "Hotlines": [
+          "Hotline Name,Contact No."
+        ],
+        "Agencies": [
+          "Agency Name"
+        ],
+        "Eateries": [
+          "Resto name,16.4835594,121.1504428"
+        ],
+        "itinreraries": [
+          "Resto name,16.4835594,121.1504428",
+          "Name,16.4835594,121.1504428",
+          "Name,16.4835594,121.1504428",
+          "Name,16.4835594,121.1504428"
+        ],
+        "Coords": "16.1785282,121.257116",
+        "Tips": [
+          "Tip 1",
+          "Tip 2"
+        ]
+      }
+    }
+  },
+  "Alfonso Castaneda": {
+    "desc": "text",
+    "Spots": {
+      "Galintuja Waterfalls": {
+        "Description": "Lorem Ipsum",
+        "Tags": [
+          "SearchTest",
+        ],
+        "Pictures": [
+          "url1",
+          "url2"
+        ],
+        "Guides": [
+          "Person Name,Contact No."
+        ],
+        "Hotlines": [
+          "Hotline Name,Contact No."
+        ],
+        "Agencies": [
+          "Agency Name"
+        ],
+        "Eateries": [
+          "Resto name,16.4835594,121.1504428"
+        ],
+        "itinreraries": [
+          "Resto name,16.4835594,121.1504428",
+          "Name,16.4835594,121.1504428",
+          "Name,16.4835594,121.1504428",
+          "Name,16.4835594,121.1504428"
+        ],
+        "Coords": "15.898844,121.2706066",
+        "Tips": [
+          "Tip 1",
+          "Tip 2"
+        ]
+      }
+    }
+  },
+  "Kasibu": {
+    "desc": "text",
+    "Spots": {
+      "Malabing Valley Citrus Farm": {
+        "Description": "Lorem Ipsum",
+        "Tags": [
+          "SearchTest",
+        ],
+        "Pictures": [
+          "url1",
+          "url2"
+        ],
+        "Guides": [
+          "Person Name,Contact No."
+        ],
+        "Hotlines": [
+          "Hotline Name,Contact No."
+        ],
+        "Agencies": [
+          "Agency Name"
+        ],
+        "Eateries": [
+          "Resto name,16.4835594,121.1504428"
+        ],
+        "itinreraries": [
+          "Resto name,16.4835594,121.1504428",
+          "Name,16.4835594,121.1504428",
+          "Name,16.4835594,121.1504428",
+          "Name,16.4835594,121.1504428"
+        ],
+        "Coords": "15.9747458,121.1062911",
+        "Tips": [
+          "Tip 1",
+          "Tip 2"
+        ]
+      },
+      "Capisaan Caves": {
+        "Description": "Lorem Ipsum",
+        "Tags": [
+          "SearchTest",
+        ],
+        "Pictures": [
+          "url1",
+          "url2"
+        ],
+        "Guides": [
+          "Person Name,Contact No."
+        ],
+        "Hotlines": [
+          "Hotline Name,Contact No."
+        ],
+        "Agencies": [
+          "Agency Name"
+        ],
+        "Eateries": [
+          "Shalom Watwatan Restaurant, 16.318004350468332, 121.29299688780613"
+        ],
+        "itinreraries": [
+          "Resto name,16.4835594,121.1504428",
+          "Name,16.4835594,121.1504428",
+          "Name,16.4835594,121.1504428",
+          "Name,16.4835594,121.1504428"
+        ],
+        "Coords": "16.321979638911557, 121.3916617235678",
+        "Tips": [
+          "Tip 1",
+          "Tip 2"
+        ]
+      }
+    }
+  },
+  "Quezon": {
+    "desc": "text",
+    "Spots": {
+      "Lintungan Waterfalls": {
+        "Description": "Lorem Ipsum",
+        "Tags": [
+          "SearchTest",
+        ],
+        "Pictures": [
+          "url1",
+          "url2"
+        ],
+        "Guides": [
+          "Person Name,Contact No."
+        ],
+        "Hotlines": [
+          "Hotline Name,Contact No."
+        ],
+        "Agencies": [
+          "Agency Name"
+        ],
+        "Eateries": [
+          "Resto name,16.4835594,121.1504428"
+        ],
+        "itinreraries": [
+          "Resto name,16.4835594,121.1504428",
+          "Name,16.4835594,121.1504428",
+          "Name,16.4835594,121.1504428",
+          "Name,16.4835594,121.1504428"
+        ],
+        "Coords": "16.4215648,121.2990783",
+        "Tips": [
+          "Tip 1",
+          "Tip 2"
+        ]
+      }
+    }
+  },
+  "Solano": {
+    "desc": "text",
+    "Spots": {
+      "Shrine of Poong Nazareno": {
+        "Description": "St. Louis Beltran Parish - Shrine of Poong Hesus Nazareno is located in the Municipality of Solano, Nueva Vizcaya",
+        "Tags": [
+          "SearchTest",
+        ],
+        "Pictures": [
+          "url1",
+          "url2"
+        ],
+        "Guides": [
+          "Person Name,Contact No."
+        ],
+        "Hotlines": [
+          "Hotline Name,Contact No."
+        ],
+        "Agencies": [
+          "Agency Name"
+        ],
+        "Eateries": [
+          "Jollibee ,16.517524252172883, 121.1820389254226",
+          "Mc Donald's, 16.516547071411036, 121.17932452990615",
+          "Kaboodle Grill and Restaurants, 16.516043027175595, 121.18446364214003",
+          "Mr. Shawrap Fastfood, 16.514942404256757, 121.1803974132902",
+          "Niners Diners,16.516341498063948, 121.17583119308662",
+          "TGIF Resto, 16.51362593537248, 121.17960774336589",
+          "Betsubara 2D Cafe, 16.518889232109846, 121.1794164776652",
+          "Lucky Chan, 16.513141193067423, 121.17844015356832",
+          "Arya Restaurant Middle East Food, 16.517481971549664, 121.17741018531535",
+          "Jasthy Grill House, 16.51491043210627, 121.17884784934212",
+          "Charito Pinoy Resto, 16.517173388605904, 121.17805391548218",
+          "Dna's Eatery, 16.514416692605536, 121.1913362145032",
+          "Tugegaraos's Pancit Batil Patong, 16.523159809542065, 121.18573576209539",
+          "Nong Paul's Pancit Man, 16.522542661336058, 121.18305355309023",
+          "Tress Pares, 16.520876351330248, 121.18376165626762",
+          "Chowking, 16.517646549030868, 121.18326812981067",
+          "Above Sea Level, 16.517988560857294, 121.17964848874509",
+          "Kuya Tabs Tapsilogan, 16.51803999116223, 121.17889747022363",
+          "Ranz Pancitan, 16.51971661160479, 121.17872580884729",
+          "Going Sober and Tea, 16.517196532432482, 121.17843613027472",
+          "hi Noona Cafe, 16.516385214202796, 121.17635205386574",
+          "Thir Tea Ann Milk Tea Shop, 16.51436719000651, 121.17752283810573",
+          "Deodato's Pizza,16.51227906892264, 121.17918580769319",
+          "Myra's Panceteria, 16.512289355275982, 121.18200749157496",
+          "Rleah's Fast Food, 16.514336331230332, 121.18298381565857",
+          "Chings Super Pares and Batangas Lomi, 16.512402505280942, 121.1851724982068",
+          "Skywrap, 16.51514894384393, 121.18008702992164",
+          "Queen's Diner, 16.51882108722181, 121.18493646382161",
+          "KFC, 16.517269082960706, 121.18396119843878",
+          "GoGi Jip Korean BBQ, 16.518421122809645, 121.18576364289774",
+          "Kubo Panceteria, 16.51896628215779, 121.19053797493552"
+        ],
+        "itinreraries": [
+          "Resto name,16.4835594,121.1504428",
+          "Name,16.4835594,121.1504428",
+          "Name,16.4835594,121.1504428",
+          "Name,16.4835594,121.1504428"
+        ],
+        "Coords": "16.518594002273986, 121.18045105769096",
+        "Tips": [
+          "Tip 1",
+          "Tip 2"
+        ]
+      }
+    }
+  },
+  "Villaverde": {
+    "desc": "text",
+    "Spots": {
+      "Our Lady of Fatima Church": {
+        "Description": "Lorem Ipsum",
+        "Tags": [
+          "SearchTest",
+        ],
+        "Pictures": [
+          "url1",
+          "url2"
+        ],
+        "Guides": [
+          "Person Name,Contact No."
+        ],
+        "Hotlines": [
+          "Hotline Name,Contact No."
+        ],
+        "Agencies": [
+          "Agency Name"
+        ],
+        "Eateries": [
+          "Resto name,16.4835594,121.1504428"
+        ],
+        "itinreraries": [
+          "Resto name,16.4835594,121.1504428",
+          "Name,16.4835594,121.1504428",
+          "Name,16.4835594,121.1504428",
+          "Name,16.4835594,121.1504428"
+        ],
+        "Coords": "16.6075943,121.1786011",
+        "Tips": [
+          "Tip 1",
+          "Tip 2"
+        ]
+      }
+    }
+  },
+  "Bagabag": {
+    "desc": "Bagabag is located at the northeastern part of Nueva Vizcaya and it is 2nd class Municipality. Bagabag is politically subdivided into 17 Barangays and have a total land area of 183.90km (71.oo sq mi). It is famous for its Buko Pie (coconut pie) in the Cagayan Valley Region and it is the gateway to the world-famous Banaue Rice Terraces. The main crops produced are rice, corn, coconut, mango, pineapple, and has the largest tilapia farming in the region. ",
+    "Spots": {
+      "Reginaldo's Farm and Recreation Park": {
+        "Description": "Reginaldo's Farm and Recreational Farm is located at Purok 3, Namnaman, Lantap, Bagabag Nueva Vizcay. It was named affter their Father becuase they want to dedicate this place in his name to remember in their hearts that no matter how hard life was, his main dream was to see them reap success.                                Entrance Fees:                                             Adult -100                                                           5-12 years old -50                                    Senior Citizen - 60",
+        "Tags": [
+          "SearchTest",
+        ],
+        "Pictures": [
+          "https://www.dropbox.com/s/ov6vnm8an29b34a/DSC_0155.jpg?dl=1",
+          "https://www.dropbox.com/s/jdjwxjh2veui6so/DSC_0143.jpg?dl=1",
+          "https://www.dropbox.com/s/yo76tl6fd7dynhj/DSC_0163.jpg?dl=1",
+          "https://www.dropbox.com/s/58ez3u4kxefslvy/DSC_0167.jpg?dl=1",
+          "https://www.dropbox.com/s/qxclnmsd07k07m9/DSC_0171.jpg?dl=1"
+        ],
+        "Guides": [
+          "Bagabag PNP- 09977008181",
+          "Red Cross- 09175079950",
+          "Ambulance- 09161282311",
+          "Ambulance- 09566153111"
+        ],
+        "Hotlines": [
+          "Hotline Name,Contact No."
+        ],
+        "Agencies": [
+          "Agency Name"
+        ],
+        "Eateries": [
+          "RUNAWAY 09, 16.619764138245092, 121.2457770107885",
+          "Waco's Restaurant, 16.60541184539489, 121.25236988055705"
+        ],
+        "itinreraries": [
+          "Palaisdaan Hotel and Restaurant, 16.592009728322967, 121.24976450939259"
+        ],
+        "Coords": "16.630785660830064, 121.23373588650794",
+        "Tips": [
+          "~Enjoy, and feed the animals that is available in the erea.",
+          "~Rent their Cottages with Videoke for as low as 300 pesos.",
+          "~Enjoy and Overnight Stay for as low as 3,500 good for 3pax."
+        ]
+      },
+      "Naked View Hub": {
+        "Description": "Naked View Hub is Located at Sitio Tapaya Villaros, Bagabag, Nueva Vizcaya. It is manage and own by Mrs. Mary Jane Simbi Cabiao. This place is perfect place to relax and have fun with your family and friends. This place is perfect for camping and sight seeing.                                                           Entrance Fee for Sight Seeing- 30 pesos   Entrance Fee for Swimming Pool- 100 pesos",
+        "Tags": [
+          "SearchTest",
+        ],
+        "Pictures": [
+          "https://www.dropbox.com/s/45hvr385b3un4pp/DSC_0084.jpg?dl=1",
+          "https://www.dropbox.com/s/qcyg1o9ry84ewl9/DSC_0085.jpg?dl=1",
+          "https://www.dropbox.com/s/dh2rykiwlny3f1e/DSC_0080.jpg?dl=1",
+          "https://www.dropbox.com/s/tzsicr0ns18oevu/DSC_0078%20%281%29.jpg?dl=1",
+          "https://www.dropbox.com/s/bs4ui7n5nx99zj7/DSC_0086.jpg?dl=1"
+        ],
+        "Guides": [
+          "Bagabag PNP- 09977008181",
+          "Red Cross- 09175079950",
+          "Ambulance- 09161282311",
+          "Ambulance- 09566153111"
+        ],
+        "Hotlines": [
+          "Hotline Name,Contact No."
+        ],
+        "Agencies": [
+          "Agency Name"
+        ],
+        "Eateries": [
+          "Butchoy Grill and Restaurant,16.608275192875865, 121.2815764552287"
+        ],
+        "itinreraries": [
+          "Palaisdaan Hotel and Restaurant, 16.592009728322967, 121.24976450939259"
+        ],
+        "Coords": "16.616055186029048, 121.28781903809143",
+        "Tips": [
+          "~Go here during afternoon or early morning for you to witness the beautiful sunset and sunrise.",
+          "~Enjoy an overnight stay with bonfire in their A'House for as low as 560 pesos good for 2 persons only, inclusions are beddings and hygine kit.",
+          "~Try their Special breakfast.",
+          "~They also serve food and cater paluto depending on what you want.",
+          "~Enjoy their Catch-and-Pay Tilapia for 140 pesos per kilo."
+        ]
+      },
+      "Palaisdaan Hotel and Restaurant": {
+        "Description": "Palaisdaan Hotel and Restaurant is a resort that offers a wide variety of facilities whiach are designed for activities such as seminars, meetings and conferences; weddings, debuts, baptismal, partnets, social gathering and special events. Efficient, friendly and well-trained staffs are committed to satisfying the need of every guests to make your stay with us fun and more memorable. The Restaurant is also known as Floating Restaurant that was inspired by meditererranean arts surrounded throughly by ponds which escapades the whole area.",
+        "Tags": [
+          "SearchTest",
+        ],
+        "Pictures": [
+          "https://www.dropbox.com/s/92phxym730cdpto/DSC_0230.jpg?dl=1",
+          "https://www.dropbox.com/s/38o68q2e2c5u3x3/DSC_0206.jpg?dl=1",
+          "https://www.dropbox.com/s/x04catyy3oj06oq/DSC_0201.jpg?dl=1",
+          "https://www.dropbox.com/s/v7e109uggn5cw8o/DSC_0193.jpg?dl=1",
+          "https://www.dropbox.com/s/h82y8wiuiopb1qy/DSC_0192.jpg?dl=1",
+          "https://www.dropbox.com/s/0ils4vqouoo398q/DSC_0189.jpg?dl=1"
+        ],
+        "Guides": [
+          "Bagabag PNP- 09977008181",
+          "Red Cross- 09175079950",
+          "Ambulance- 09161282311",
+          "Ambulance- 09566153111"
+        ],
+        "Hotlines": [
+          "Hotline Name,Contact No."
+        ],
+        "Agencies": [
+          "Agency Name"
+        ],
+        "Eateries": [
+          "Wacos's Restaurant, 16.604336151281487, 121.25211976467097",
+          "G & B Restaurant, 16.56508439588115, 121.24763117339222"
+        ],
+        "itinreraries": [
+          "PLT Wellnes and Mountain Resort, 16.54009332981123, 121.22389554951829",
+          "La Princesa Hotel Resort and Restaurant,16.530847825554662, 121.21097079299476",
+          "Balai Gloria Hotel, 16.523338525017223, 121.17208600020776"
+        ],
+        "Coords": "16.63083190953615, 121.23362859473599",
+        "Tips": [
+          "~Avail their Superior Rooms for as low as 1,800 per night good for 3 persons.With controlled air conditioning, hot and cold shower, cable TV and 2 queen size bed with pull out.",
+          "~Their Class C Roooms rate is 550 per night good for 2 persons only. With electric fan, one queen size bed.",
+          "~For Dinners must try their best selling Chili Garlic Pangasius, Crispy Pata, Letchon Kawali, and Palaisdaan Bulalo.",
+          "~Experience also the Catch and Pay Fishing."
+        ]
+      }
+    }
+  },
+  "Diadi": {
+    "desc": "text",
+    "Spots": {
+      "Lower Magat Eco-Tourism Park": {
+        "Description": "Lorem Ipsum",
+        "Tags": [
+          "SearchTest",
+        ],
+        "Pictures": [
+          "url",
+          "url2"
+        ],
+        "Guides": [
+          "Person Name,Contact No."
+        ],
+        "Hotlines": [
+          "Hotline Name,Contact No."
+        ],
+        "Agencies": [
+          "Agency Name"
+        ],
+        "Eateries": [
+          "Resto name,16.4835594,121.1504428"
+        ],
+        "itinreraries": [
+          "Resto name,16.4835594,121.1504428",
+          "Name,16.4835594,121.1504428",
+          "Name,16.4835594,121.1504428",
+          "Name,16.4835594,121.1504428"
+        ],
+        "Coords": "16.6490392,121.3821036",
+        "Tips": [
+          "Tip 1",
+          "Tip 2"
+        ]
+      }
+    }
+  }
+}

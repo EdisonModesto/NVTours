@@ -29,7 +29,9 @@ class _ResultsSheetState extends ConsumerState<ResultsSheet> {
   @override
   Widget build(BuildContext context) {
     var filteredSpots = widget.spot.values.where((element){
-      return element.name.toLowerCase().contains(widget.query);
+      var lowercaseList = element.tags.map((e) => e.toLowerCase()).toList();
+
+      return lowercaseList.contains(widget.query.toLowerCase());
     });
     return Container(
       height: 300,

@@ -192,42 +192,85 @@ class _GuideViewState extends ConsumerState<GuideView> {
                                 )
                               ]),
                         ),
-
-                        /*       Container(
-                            height: 175,
-                            width: 1000,
-                            decoration: BoxDecoration(
-                              color: AppColors().cardColor,
-                              borderRadius:
-                              const BorderRadius.all(Radius.circular(12)),
-                              border: Border.all(color: Colors.black),
-                            ),
-                            child: ClipRRect(
-                              borderRadius:
-                              const BorderRadius.all(Radius.circular(11)),
-                              child: Expanded(
-                                flex: 1,
-                                child: Container(
-                                  width: 1000,
-                                  padding: const EdgeInsets.all(5),
-                                  decoration: BoxDecoration(
-                                    color: AppColors().primary,
-                                    border: const Border(
-                                      top: BorderSide(
-                                        color: Colors.black,
-                                      ),
-                                    ),
-                                  ),
-                                  child: Text(
-                                    widget.spot.description,
-                                    style: GoogleFonts.poppins(
-                                      fontSize: 15,
-                                      color: Colors.white,
-                                    ),
-                                  ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Container(
+                          width: 1000,
+                          decoration: BoxDecoration(
+                            color: AppColors().primary,
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          child: ExpansionTile(
+                              title: Text(
+                                "Tourist Guides",
+                                style: GoogleFonts.poppins(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
                                 ),
                               ),
-                            )),*/
+                              initiallyExpanded: true,
+                              trailing: const Icon(
+                                Icons.arrow_drop_down_circle_outlined,
+                                color: Colors.white,
+                              ),
+                              collapsedTextColor: Colors.white,
+                              collapsedIconColor: Colors.white,
+                              textColor: Colors.white,
+                              childrenPadding: const EdgeInsets.only(
+                                  left: 20, right: 20, bottom: 10),
+                              children: List.generate(widget.spot.guides.length, (index){
+                                return Align(
+                                  alignment: AlignmentDirectional.topStart,
+                                  child: Text(
+                                    widget.spot.guides[index],
+                                    style: GoogleFonts.poppins(
+                                        fontSize: 15, color: Colors.white),
+                                  ),
+                                );
+                              })
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Container(
+                          width: 1000,
+                          decoration: BoxDecoration(
+                            color: AppColors().primary,
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          child: ExpansionTile(
+                              title: Text(
+                                "Tourist Agencies",
+                                style: GoogleFonts.poppins(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              initiallyExpanded: true,
+                              trailing: const Icon(
+                                Icons.arrow_drop_down_circle_outlined,
+                                color: Colors.white,
+                              ),
+                              collapsedTextColor: Colors.white,
+                              collapsedIconColor: Colors.white,
+                              textColor: Colors.white,
+                              childrenPadding: const EdgeInsets.only(
+                                  left: 20, right: 20, bottom: 10),
+                              children: List.generate(widget.spot.agencies.length, (index){
+                                return Align(
+                                  alignment: AlignmentDirectional.topStart,
+                                  child: Text(
+                                    widget.spot.agencies[index],
+                                    style: GoogleFonts.poppins(
+                                        fontSize: 15, color: Colors.white),
+                                  ),
+                                );
+                              })
+                          ),
+                        ),
+
                       ]),
                     ),
                   ),
@@ -241,7 +284,7 @@ class _GuideViewState extends ConsumerState<GuideView> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Tourist Guides",
+                          "Emergency Hotlines",
                           style: GoogleFonts.poppins(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
@@ -257,7 +300,7 @@ class _GuideViewState extends ConsumerState<GuideView> {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
-                                    widget.spot.guides[index],
+                                    widget.spot.hotlines[index],
                                     style: GoogleFonts.poppins(
                                       fontSize: 16,
                                     ),
