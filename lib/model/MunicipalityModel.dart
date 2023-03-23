@@ -34,6 +34,7 @@ class Spot {
   final List<String> guides;
   final List<String> eateries;
   final List<String> itineraries;
+  final List<String> banks;
   final String coords;
   final List<String> tips;
   final String description;
@@ -48,6 +49,7 @@ class Spot {
     required this.guides,
     required this.eateries,
     required this.itineraries,
+    required this.banks,
     required this.coords,
     required this.tips,
     required this.description,
@@ -63,6 +65,7 @@ class Spot {
       guides: List<String>.from(json['Guides']),
       eateries: List<String>.from(json['Eateries']),
       itineraries: List<String>.from(json['itinreraries']),
+      banks: List<String>.from(json['Banks']),
       coords: json["Coords"],
       tips: List<String>.from(json['Tips']),
       description: json['Description'],

@@ -293,7 +293,7 @@ class _GuideViewState extends ConsumerState<GuideView> {
                         const SizedBox(height: 10),
                         Expanded(
                           child: ListView.separated(
-                            itemCount: widget.spot.guides.length,
+                            itemCount: widget.spot.hotlines.length,
                             itemBuilder: (context, index) {
                               return Row(
                                 mainAxisAlignment:

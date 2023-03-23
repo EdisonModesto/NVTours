@@ -454,6 +454,103 @@ class _MoreViewState extends ConsumerState<MoreView> {
                                               );
                                             })),
                                   ),
+                                  SizedBox(height: 10),
+                                  Container(
+                                    width: 1000,
+                                    decoration: BoxDecoration(
+                                      color: AppColors().cardColor,
+                                      borderRadius: BorderRadius.circular(12),
+                                    ),
+                                    child: ExpansionTile(
+                                        title: Text(
+                                          "Nearby Banks",
+                                          style: GoogleFonts.poppins(
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                        trailing: Icon(
+                                          Icons.arrow_drop_down_circle_outlined,
+                                          color: AppColors().primary,
+                                        ),
+                                        textColor: AppColors().primary,
+                                        childrenPadding: EdgeInsets.zero,
+                                        children: List.generate(
+                                            widget.spot.itineraries.length,
+                                                (index) {
+                                              return Padding(
+                                                padding: const EdgeInsets.only(
+                                                    left: 15,
+                                                    right: 15,
+                                                    bottom: 15),
+                                                child: Row(
+                                                  mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                                  children: [
+                                                    Align(
+                                                      alignment:
+                                                      Alignment.centerLeft,
+                                                      child: Text(
+                                                        widget.spot.banks[index]
+                                                            .split(",")[0],
+                                                        style: GoogleFonts.poppins(
+                                                          fontSize: 16,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    IconButton(
+                                                        onPressed: () async {
+                                                          // start navigation
+                                                          await _navigationWithMapboxPlugin
+                                                              .startNavigation(
+                                                            // origin refers to the user's starting point at the time of starting the navigation
+                                                              origin: WayPoint(
+                                                                  latitude: snapshot
+                                                                      .data![1],
+                                                                  longitude:
+                                                                  snapshot.data![
+                                                                  0]),
+                                                              // destination refers to the end point or goal for the user at the time of starting the navigation
+                                                              destination: WayPoint(
+                                                                  latitude: double.parse(
+                                                                      widget.spot.itineraries[index].split(",")[
+                                                                      1]),
+                                                                  longitude: double.parse(widget
+                                                                      .spot
+                                                                      .itineraries[
+                                                                  index]
+                                                                      .split(",")[2])),
+                                                              // if we enable this option we can choose a destination with a sustained tap
+                                                              setDestinationWithLongTap: false,
+                                                              // if we enable this option we will activate the simulation of the route
+                                                              simulateRoute: false,
+                                                              // if we enable this option we can see alternative routes when starting the navigation map ONLY ANDROID
+                                                              // optional, default: false
+                                                              alternativeRoute: false,
+                                                              // the style or theme with which the navigation map will be loaded
+                                                              // optional, default: streets, others: dark, light, traffic_day, traffic_night, satellite, satellite_streets, outdoors
+                                                              style: 'traffic_night',
+                                                              language: 'en',
+                                                              // refers to the navigation mode, the route and time will be calculated depending on this
+                                                              // optional, default: driving, others: walking, cycling
+                                                              profile: 'driving',
+                                                              // unit of measure in which the navigation assistant will speak to us
+                                                              // optional, default: metric
+                                                              voiceUnits: 'imperial',
+                                                              // optional, message that will be displayed when starting the navigation map ONLY ANDROID
+                                                              msg: 'Path Found!');
+                                                        },
+                                                        icon: Icon(
+                                                          Icons.navigation,
+                                                          color:
+                                                          AppColors().primary,
+                                                        )),
+                                                  ],
+                                                ),
+                                              );
+                                            })),
+                                  ),
 
                                 ],
                               ),

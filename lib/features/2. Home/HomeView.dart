@@ -45,494 +45,510 @@ class _HomeViewState extends ConsumerState<HomeView> {
     return Scaffold(
         resizeToAvoidBottomInset: false,
         key: key,
-        appBar: PreferredSize(
-            preferredSize: const Size.fromHeight(70),
-            child: NvAppBar(
-              DrawerKey: key,
-            )),
+
         body: muniProvider.when(
           data: (data) {
             Map<String, Spot> spot = {};
             for (var i = 0; i < data.municipalities.length; i++) {
               spot.addAll(data.municipalities.values.elementAt(i).spots);
             }
-            return Center(
-              child: Padding(
-                padding: const EdgeInsets.only(
-                    left: 30, right: 30, top: 20, bottom: 30),
-                child: muniProvider.when(
-                  data: (data) {
-                    return Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                            decoration: BoxDecoration(
-                                color: AppColors().cardColor,
-                                borderRadius: const BorderRadius.all(
-                                    Radius.circular(50))),
-                            width: 1000,
-                            height: 40,
-                            child: TextField(
-                              controller: _searchCtrl,
-                              onSubmitted: (data) {
-                                showMaterialModalBottomSheet(
-                                    context: context,
-                                    shape: const RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(20),
-                                        topRight: Radius.circular(20),
+            return AnimatedContainer(
+              duration: const Duration(milliseconds: 500),
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage(
+                    "assets/images/municipalities/${ref.read(spotProvider.notifier).state["municipality"].toString().toLowerCase()}.jpg",
+                  ),
+                  fit: BoxFit.cover,
+                  opacity: 0.3,
+                ),
+              ),
+              child: Column(
+                children: [
+                  PreferredSize(
+                      preferredSize: const Size.fromHeight(70),
+                      child: NvAppBar(
+                        DrawerKey: key,
+                      )),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.only(
+                          left: 30, right: 30, top: 20, bottom: 30),
+                      child: muniProvider.when(
+                        data: (data) {
+                          return Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+
+                              Container(
+                                  decoration: BoxDecoration(
+                                      color: AppColors().cardColor,
+                                      borderRadius: const BorderRadius.all(
+                                          Radius.circular(50))),
+                                  width: 1000,
+                                  height: 40,
+                                  child: TextField(
+                                    controller: _searchCtrl,
+                                    onSubmitted: (data) {
+                                      showMaterialModalBottomSheet(
+                                          context: context,
+                                          shape: const RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.only(
+                                              topLeft: Radius.circular(20),
+                                              topRight: Radius.circular(20),
+                                            ),
+                                          ),
+                                          builder: (context) {
+                                            return ResultsSheet(
+                                              query: data,
+                                              spot: spot,
+                                            );
+                                          });
+                                    },
+                                    decoration: const InputDecoration(
+                                      contentPadding:
+                                          EdgeInsets.only(top: 5, bottom: 5),
+                                      hintText: "Search",
+                                      border: InputBorder.none,
+                                      prefixIcon: Icon(Icons.search),
+                                    ),
+                                  )),
+                              Center(
+                                  child: SizedBox(
+                                height: 300,
+                                width: 300,
+                                child: Stack(
+                                  children: [
+                                    CustomPaint(
+                                      size: Size(500, (500 * 1).toDouble()),
+                                      //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
+                                      painter: Layer1(),
+                                      child: GestureDetector(
+                                        onTapDown: (s) {
+                                          for (int i = 0; i < values.length; i++) {
+                                            values[i] = false;
+                                          }
+                                          values[0] = true;
+
+                                          setState(() {
+                                            ref
+                                                .read(spotProvider.notifier)
+                                                .refreshSpot(
+                                                    data.municipalities["Kayapa"]!
+                                                        .spots,
+                                                    "Kayapa");
+                                          });
+                                        },
                                       ),
                                     ),
-                                    builder: (context) {
-                                      return ResultsSheet(
-                                        query: data,
-                                        spot: spot,
-                                      );
-                                    });
-                              },
-                              decoration: const InputDecoration(
-                                contentPadding:
-                                    EdgeInsets.only(top: 5, bottom: 5),
-                                hintText: "Search",
-                                border: InputBorder.none,
-                                prefixIcon: Icon(Icons.search),
-                              ),
-                            )),
-                        Center(
-                            child: SizedBox(
-                          height: 300,
-                          width: 300,
-                          child: Stack(
-                            children: [
-                              CustomPaint(
-                                size: Size(500, (500 * 1).toDouble()),
-                                //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
-                                painter: Layer1(),
-                                child: GestureDetector(
-                                  onTapDown: (s) {
-                                    for (int i = 0; i < values.length; i++) {
-                                      values[i] = false;
-                                    }
-                                    values[0] = true;
-
-                                    setState(() {
-                                      ref
-                                          .read(spotProvider.notifier)
-                                          .refreshSpot(
-                                              data.municipalities["Kayapa"]!
+                                    GestureDetector(
+                                      onTap: () {
+                                        for (int i = 0; i < values.length; i++) {
+                                          values[i] = false;
+                                        }
+                                        values[1] = true;
+                                        setState(() {
+                                          ref.read(spotProvider.notifier).refreshSpot(
+                                              data.municipalities["Ambaguio"]!.spots,
+                                              "Ambaguio");
+                                        });
+                                        Fluttertoast.showToast(msg: "Ambaguio");
+                                      },
+                                      child: CustomPaint(
+                                        size: Size(500, (500 * 1).toDouble()),
+                                        //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
+                                        painter: Layer2(),
+                                      ),
+                                    ),
+                                    GestureDetector(
+                                      onTap: () {
+                                        for (int i = 0; i < values.length; i++) {
+                                          values[i] = false;
+                                        }
+                                        values[2] = true;
+                                        setState(() {
+                                          ref.read(spotProvider.notifier).refreshSpot(
+                                              data.municipalities["Aritao"]!.spots,
+                                              "Aritao");
+                                        });
+                                      },
+                                      child: CustomPaint(
+                                        size: Size(500, (500 * 1).toDouble()),
+                                        //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
+                                        painter: Layer3(),
+                                      ),
+                                    ),
+                                    GestureDetector(
+                                      onTap: () {
+                                        for (int i = 0; i < values.length; i++) {
+                                          values[i] = false;
+                                        }
+                                        values[3] = true;
+                                        setState(() {
+                                          ref.read(spotProvider.notifier).refreshSpot(
+                                              data.municipalities["Santa Fe"]!.spots,
+                                              "Santa Fe");
+                                        });
+                                      },
+                                      child: CustomPaint(
+                                        size: Size(500, (500 * 1).toDouble()),
+                                        //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
+                                        painter: Layer4(),
+                                      ),
+                                    ),
+                                    GestureDetector(
+                                      onTap: () {
+                                        for (int i = 0; i < values.length; i++) {
+                                          values[i] = false;
+                                        }
+                                        values[4] = true;
+                                        setState(() {
+                                          ref.read(spotProvider.notifier).refreshSpot(
+                                              data.municipalities["Dupax Del Sur"]!
                                                   .spots,
-                                              "Kayapa");
-                                    });
-                                  },
-                                ),
-                              ),
-                              GestureDetector(
-                                onTap: () {
-                                  for (int i = 0; i < values.length; i++) {
-                                    values[i] = false;
-                                  }
-                                  values[1] = true;
-                                  setState(() {
-                                    ref.read(spotProvider.notifier).refreshSpot(
-                                        data.municipalities["Ambaguio"]!.spots,
-                                        "Ambaguio");
-                                  });
-                                  Fluttertoast.showToast(msg: "Ambaguio");
-                                },
-                                child: CustomPaint(
-                                  size: Size(500, (500 * 1).toDouble()),
-                                  //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
-                                  painter: Layer2(),
-                                ),
-                              ),
-                              GestureDetector(
-                                onTap: () {
-                                  for (int i = 0; i < values.length; i++) {
-                                    values[i] = false;
-                                  }
-                                  values[2] = true;
-                                  setState(() {
-                                    ref.read(spotProvider.notifier).refreshSpot(
-                                        data.municipalities["Aritao"]!.spots,
-                                        "Aritao");
-                                  });
-                                },
-                                child: CustomPaint(
-                                  size: Size(500, (500 * 1).toDouble()),
-                                  //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
-                                  painter: Layer3(),
-                                ),
-                              ),
-                              GestureDetector(
-                                onTap: () {
-                                  for (int i = 0; i < values.length; i++) {
-                                    values[i] = false;
-                                  }
-                                  values[3] = true;
-                                  setState(() {
-                                    ref.read(spotProvider.notifier).refreshSpot(
-                                        data.municipalities["Santa Fe"]!.spots,
-                                        "Santa Fe");
-                                  });
-                                },
-                                child: CustomPaint(
-                                  size: Size(500, (500 * 1).toDouble()),
-                                  //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
-                                  painter: Layer4(),
-                                ),
-                              ),
-                              GestureDetector(
-                                onTap: () {
-                                  for (int i = 0; i < values.length; i++) {
-                                    values[i] = false;
-                                  }
-                                  values[4] = true;
-                                  setState(() {
-                                    ref.read(spotProvider.notifier).refreshSpot(
-                                        data.municipalities["Dupax Del Sur"]!
-                                            .spots,
-                                        "Dupax Del Sur");
-                                  });
-                                },
-                                child: CustomPaint(
-                                  size: Size(500, (500 * 1).toDouble()),
-                                  //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
-                                  painter: Layer5(),
-                                ),
-                              ),
-                              GestureDetector(
-                                onTap: () {
-                                  for (int i = 0; i < values.length; i++) {
-                                    values[i] = false;
-                                  }
-                                  values[5] = true;
-                                  setState(() {
-                                    ref.read(spotProvider.notifier).refreshSpot(
-                                        data
-                                            .municipalities[
-                                                "Alfonso Castaneda"]!
-                                            .spots,
-                                        "Alfonso Castaneda");
-                                  });
-                                },
-                                child: CustomPaint(
-                                  size: Size(500, (500 * 1).toDouble()),
-                                  //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
-                                  painter: Layer6(),
-                                ),
-                              ),
-                              GestureDetector(
-                                onTap: () {
-                                  for (int i = 0; i < values.length; i++) {
-                                    values[i] = false;
-                                  }
-                                  values[6] = true;
+                                              "Dupax Del Sur");
+                                        });
+                                      },
+                                      child: CustomPaint(
+                                        size: Size(500, (500 * 1).toDouble()),
+                                        //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
+                                        painter: Layer5(),
+                                      ),
+                                    ),
+                                    GestureDetector(
+                                      onTap: () {
+                                        for (int i = 0; i < values.length; i++) {
+                                          values[i] = false;
+                                        }
+                                        values[5] = true;
+                                        setState(() {
+                                          ref.read(spotProvider.notifier).refreshSpot(
+                                              data
+                                                  .municipalities[
+                                                      "Alfonso Castaneda"]!
+                                                  .spots,
+                                              "Alfonso Castaneda");
+                                        });
+                                      },
+                                      child: CustomPaint(
+                                        size: Size(500, (500 * 1).toDouble()),
+                                        //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
+                                        painter: Layer6(),
+                                      ),
+                                    ),
+                                    GestureDetector(
+                                      onTap: () {
+                                        for (int i = 0; i < values.length; i++) {
+                                          values[i] = false;
+                                        }
+                                        values[6] = true;
 
-                                  setState(() {
-                                    ref.read(spotProvider.notifier).refreshSpot(
-                                        data.municipalities["Dupax Del Norte"]!
-                                            .spots,
-                                        "Dupax Del Norte");
-                                  });
-                                },
-                                child: CustomPaint(
-                                  size: Size(500, (500 * 1).toDouble()),
-                                  //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
-                                  painter: Layer7(),
-                                ),
-                              ),
-                              GestureDetector(
-                                onTap: () {
-                                  for (int i = 0; i < values.length; i++) {
-                                    values[i] = false;
-                                  }
-                                  values[7] = true;
+                                        setState(() {
+                                          ref.read(spotProvider.notifier).refreshSpot(
+                                              data.municipalities["Dupax Del Norte"]!
+                                                  .spots,
+                                              "Dupax Del Norte");
+                                        });
+                                      },
+                                      child: CustomPaint(
+                                        size: Size(500, (500 * 1).toDouble()),
+                                        //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
+                                        painter: Layer7(),
+                                      ),
+                                    ),
+                                    GestureDetector(
+                                      onTap: () {
+                                        for (int i = 0; i < values.length; i++) {
+                                          values[i] = false;
+                                        }
+                                        values[7] = true;
 
-                                  setState(() {
-                                    ref.read(spotProvider.notifier).refreshSpot(
-                                        data.municipalities["Kasibu"]!.spots,
-                                        "Kasibu");
-                                  });
-                                },
-                                child: CustomPaint(
-                                  size: Size(500, (500 * 1).toDouble()),
-                                  //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
-                                  painter: Layer8(),
-                                ),
-                              ),
-                              GestureDetector(
-                                onTap: () {
-                                  for (int i = 0; i < values.length; i++) {
-                                    values[i] = false;
-                                  }
-                                  values[8] = true;
+                                        setState(() {
+                                          ref.read(spotProvider.notifier).refreshSpot(
+                                              data.municipalities["Kasibu"]!.spots,
+                                              "Kasibu");
+                                        });
+                                      },
+                                      child: CustomPaint(
+                                        size: Size(500, (500 * 1).toDouble()),
+                                        //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
+                                        painter: Layer8(),
+                                      ),
+                                    ),
+                                    GestureDetector(
+                                      onTap: () {
+                                        for (int i = 0; i < values.length; i++) {
+                                          values[i] = false;
+                                        }
+                                        values[8] = true;
 
-                                  setState(() {
-                                    ref.read(spotProvider.notifier).refreshSpot(
-                                        data.municipalities["Bambang"]!.spots,
-                                        "Bambang");
-                                  });
-                                },
-                                child: CustomPaint(
-                                  size: Size(500, (500 * 1).toDouble()),
-                                  //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
-                                  painter: Layer9(),
-                                ),
-                              ),
-                              GestureDetector(
-                                onTap: () {
-                                  for (int i = 0; i < values.length; i++) {
-                                    values[i] = false;
-                                  }
-                                  values[9] = true;
+                                        setState(() {
+                                          ref.read(spotProvider.notifier).refreshSpot(
+                                              data.municipalities["Bambang"]!.spots,
+                                              "Bambang");
+                                        });
+                                      },
+                                      child: CustomPaint(
+                                        size: Size(500, (500 * 1).toDouble()),
+                                        //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
+                                        painter: Layer9(),
+                                      ),
+                                    ),
+                                    GestureDetector(
+                                      onTap: () {
+                                        for (int i = 0; i < values.length; i++) {
+                                          values[i] = false;
+                                        }
+                                        values[9] = true;
 
-                                  setState(() {
-                                    ref.read(spotProvider.notifier).refreshSpot(
-                                        data.municipalities["Bayombong"]!.spots,
-                                        "Bayombong");
-                                  });
-                                },
-                                child: CustomPaint(
-                                  size: Size(500, (500 * 1).toDouble()),
-                                  //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
-                                  painter: Layer10(),
-                                ),
-                              ),
-                              GestureDetector(
-                                onTap: () {
-                                  for (int i = 0; i < values.length; i++) {
-                                    values[i] = false;
-                                  }
-                                  values[10] = true;
+                                        setState(() {
+                                          ref.read(spotProvider.notifier).refreshSpot(
+                                              data.municipalities["Bayombong"]!.spots,
+                                              "Bayombong");
+                                        });
+                                      },
+                                      child: CustomPaint(
+                                        size: Size(500, (500 * 1).toDouble()),
+                                        //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
+                                        painter: Layer10(),
+                                      ),
+                                    ),
+                                    GestureDetector(
+                                      onTap: () {
+                                        for (int i = 0; i < values.length; i++) {
+                                          values[i] = false;
+                                        }
+                                        values[10] = true;
 
-                                  setState(() {
-                                    ref.read(spotProvider.notifier).refreshSpot(
-                                        data.municipalities["Quezon"]!.spots,
-                                        "Quezon");
-                                  });
-                                },
-                                child: CustomPaint(
-                                  size: Size(500, (500 * 1).toDouble()),
-                                  //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
-                                  painter: Layer11(),
-                                ),
-                              ),
-                              GestureDetector(
-                                onTap: () {
-                                  for (int i = 0; i < values.length; i++) {
-                                    values[i] = false;
-                                  }
-                                  values[11] = true;
+                                        setState(() {
+                                          ref.read(spotProvider.notifier).refreshSpot(
+                                              data.municipalities["Quezon"]!.spots,
+                                              "Quezon");
+                                        });
+                                      },
+                                      child: CustomPaint(
+                                        size: Size(500, (500 * 1).toDouble()),
+                                        //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
+                                        painter: Layer11(),
+                                      ),
+                                    ),
+                                    GestureDetector(
+                                      onTap: () {
+                                        for (int i = 0; i < values.length; i++) {
+                                          values[i] = false;
+                                        }
+                                        values[11] = true;
 
-                                  setState(() {
-                                    ref.read(spotProvider.notifier).refreshSpot(
-                                        data.municipalities["Diadi"]!.spots,
-                                        "Diadi");
-                                  });
-                                },
-                                child: CustomPaint(
-                                  size: Size(500, (500 * 1).toDouble()),
-                                  //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
-                                  painter: Layer12(),
-                                ),
-                              ),
-                              GestureDetector(
-                                onTap: () {
-                                  for (int i = 0; i < values.length; i++) {
-                                    values[i] = false;
-                                  }
-                                  values[12] = true;
+                                        setState(() {
+                                          ref.read(spotProvider.notifier).refreshSpot(
+                                              data.municipalities["Diadi"]!.spots,
+                                              "Diadi");
+                                        });
+                                      },
+                                      child: CustomPaint(
+                                        size: Size(500, (500 * 1).toDouble()),
+                                        //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
+                                        painter: Layer12(),
+                                      ),
+                                    ),
+                                    GestureDetector(
+                                      onTap: () {
+                                        for (int i = 0; i < values.length; i++) {
+                                          values[i] = false;
+                                        }
+                                        values[12] = true;
 
-                                  setState(() {
-                                    ref.read(spotProvider.notifier).refreshSpot(
-                                        data.municipalities["Bagabag"]!.spots,
-                                        "Bagabag");
-                                  });
-                                },
-                                child: CustomPaint(
-                                  size: Size(500, (500 * 1).toDouble()),
-                                  //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
-                                  painter: Layer13(),
-                                ),
-                              ),
-                              GestureDetector(
-                                onTap: () {
-                                  for (int i = 0; i < values.length; i++) {
-                                    values[i] = false;
-                                  }
-                                  values[13] = true;
+                                        setState(() {
+                                          ref.read(spotProvider.notifier).refreshSpot(
+                                              data.municipalities["Bagabag"]!.spots,
+                                              "Bagabag");
+                                        });
+                                      },
+                                      child: CustomPaint(
+                                        size: Size(500, (500 * 1).toDouble()),
+                                        //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
+                                        painter: Layer13(),
+                                      ),
+                                    ),
+                                    GestureDetector(
+                                      onTap: () {
+                                        for (int i = 0; i < values.length; i++) {
+                                          values[i] = false;
+                                        }
+                                        values[13] = true;
 
-                                  setState(() {
-                                    ref.read(spotProvider.notifier).refreshSpot(
-                                        data.municipalities["Solano"]!.spots,
-                                        "Solano");
-                                  });
-                                },
-                                child: CustomPaint(
-                                  size: Size(500, (500 * 1).toDouble()),
-                                  //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
-                                  painter: Layer14(),
-                                ),
-                              ),
-                              GestureDetector(
-                                onTap: () {
-                                  for (int i = 0; i < values.length; i++) {
-                                    values[i] = false;
-                                  }
-                                  values[14] = true;
+                                        setState(() {
+                                          ref.read(spotProvider.notifier).refreshSpot(
+                                              data.municipalities["Solano"]!.spots,
+                                              "Solano");
+                                        });
+                                      },
+                                      child: CustomPaint(
+                                        size: Size(500, (500 * 1).toDouble()),
+                                        //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
+                                        painter: Layer14(),
+                                      ),
+                                    ),
+                                    GestureDetector(
+                                      onTap: () {
+                                        for (int i = 0; i < values.length; i++) {
+                                          values[i] = false;
+                                        }
+                                        values[14] = true;
 
-                                  setState(() {
-                                    ref.read(spotProvider.notifier).refreshSpot(
-                                        data.municipalities["Villaverde"]!
-                                            .spots,
-                                        "Villaverde");
-                                  });
-                                },
-                                child: CustomPaint(
-                                  size: Size(500, (500 * 1).toDouble()),
-                                  //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
-                                  painter: Layer15(),
+                                        setState(() {
+                                          ref.read(spotProvider.notifier).refreshSpot(
+                                              data.municipalities["Villaverde"]!
+                                                  .spots,
+                                              "Villaverde");
+                                        });
+                                      },
+                                      child: CustomPaint(
+                                        size: Size(500, (500 * 1).toDouble()),
+                                        //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
+                                        painter: Layer15(),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              )),
+                              Expanded(
+                                child: Container(
+                                  width: 1000,
+                                  decoration: BoxDecoration(
+                                    color: AppColors().cardColor,
+                                    borderRadius: BorderRadius.circular(12),
+                                  ),
+                                  padding: const EdgeInsets.only(
+                                      left: 30, right: 30, top: 20, bottom: 20),
+                                  child: SingleChildScrollView(
+                                    child: Column(
+                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          ref.read(spotProvider.notifier)
+                                                      .state["municipality"] ==
+                                                  null
+                                              ? "Select a Municipality"
+                                              : "Municipality of ${ref.read(spotProvider.notifier).state["municipality"]}",
+                                          style: GoogleFonts.poppins(
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                        const SizedBox(height: 5),
+                                        Text(
+                                          ref
+                                                      .read(spotProvider.notifier)
+                                                      .state?["municipality"] ==
+                                                  null
+                                              ? "Select a Municipality to see its description"
+                                              : data
+                                                  .municipalities[
+                                                      "${ref.read(spotProvider.notifier).state["municipality"]}"]!
+                                                  .description,
+                                          style: GoogleFonts.poppins(
+                                            fontSize: 14,
+                                          ),
+                                        ),
+                                        const SizedBox(height: 10),
+                                        Text(
+                                          "Tourist Spots",
+                                          style: GoogleFonts.poppins(
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                        const SizedBox(height: 10),
+                                        Column(
+                                            children: List.generate(
+                                                ref.read(spotProvider.notifier).state["spots"] ==
+                                                        null
+                                                    ? 0
+                                                    : ref
+                                                        .read(spotProvider.notifier)
+                                                        .state["spots"]
+                                                        .length, (index) {
+                                          return Container(
+                                            height: 50,
+                                            width: 1000,
+                                            margin: EdgeInsets.only(bottom: 10),
+                                            decoration: BoxDecoration(
+                                              color: Colors.white,
+                                              borderRadius: BorderRadius.circular(10),
+                                            ),
+                                            padding: const EdgeInsets.only(
+                                                top: 8,
+                                                bottom: 8,
+                                                right: 15,
+                                                left: 15),
+                                            child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.spaceBetween,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.center,
+                                              children: [
+                                                Expanded(
+                                                  child: AutoSizeText(
+                                                    "${ref.read(spotProvider.notifier).state["spots"].keys.elementAt(index)}",
+                                                    style: GoogleFonts.poppins(
+                                                      fontSize: 14,
+                                                    ),
+                                                    maxLines: 2,
+                                                    overflow: TextOverflow.ellipsis,
+                                                  ),
+                                                ),
+                                                const SizedBox(
+                                                  width: 4,
+                                                ),
+                                                ElevatedButton(
+                                                  onPressed: () {
+                                                    GoRouter.of(context).push(
+                                                        "/guide",
+                                                        extra: ref
+                                                            .read(
+                                                                spotProvider.notifier)
+                                                            .state["spots"]
+                                                            .values
+                                                            .elementAt(index));
+                                                  },
+                                                  child: const Text(
+                                                    "Visit",
+                                                  ),
+                                                  style: ElevatedButton.styleFrom(
+                                                    elevation: 0,
+                                                    fixedSize: const Size(85, 30),
+                                                    backgroundColor:
+                                                        AppColors().primary,
+                                                    shape: RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.circular(20),
+                                                    ),
+                                                  ),
+                                                )
+                                              ],
+                                            ),
+                                          );
+                                        }))
+                                      ],
+                                    ),
+                                  ),
                                 ),
                               ),
                             ],
-                          ),
-                        )),
-                        Expanded(
-                          child: Container(
-                            width: 1000,
-                            decoration: BoxDecoration(
-                              color: AppColors().cardColor,
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                            padding: const EdgeInsets.only(
-                                left: 30, right: 30, top: 20, bottom: 20),
-                            child: SingleChildScrollView(
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    ref
-                                                .read(spotProvider.notifier)
-                                                .state?["municipality"] ==
-                                            null
-                                        ? "Select a Municipality"
-                                        : "Municipality of ${ref.read(spotProvider.notifier).state["municipality"]}",
-                                    style: GoogleFonts.poppins(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                  const SizedBox(height: 5),
-                                  Text(
-                                    ref
-                                                .read(spotProvider.notifier)
-                                                .state?["municipality"] ==
-                                            null
-                                        ? "Select a Municipality to see its description"
-                                        : data
-                                            .municipalities[
-                                                "${ref.read(spotProvider.notifier).state["municipality"]}"]!
-                                            .description,
-                                    style: GoogleFonts.poppins(
-                                      fontSize: 14,
-                                    ),
-                                  ),
-                                  const SizedBox(height: 10),
-                                  Text(
-                                    "Tourist Spots",
-                                    style: GoogleFonts.poppins(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                  const SizedBox(height: 10),
-                                  Column(
-                                      children: List.generate(
-                                          ref.read(spotProvider.notifier).state[
-                                                      "spots"] ==
-                                                  null
-                                              ? 0
-                                              : ref
-                                                  .read(spotProvider.notifier)
-                                                  .state["spots"]
-                                                  .length, (index) {
-                                    return Container(
-                                      height: 50,
-                                      width: 1000,
-                                      margin: EdgeInsets.only(bottom: 10),
-                                      decoration: BoxDecoration(
-                                        color: Colors.white,
-                                        borderRadius: BorderRadius.circular(10),
-                                      ),
-                                      padding: const EdgeInsets.only(
-                                          top: 8,
-                                          bottom: 8,
-                                          right: 15,
-                                          left: 15),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        children: [
-                                          Expanded(
-                                            child: AutoSizeText(
-                                              "${ref.read(spotProvider.notifier).state["spots"].keys.elementAt(index)}",
-                                              style: GoogleFonts.poppins(
-                                                fontSize: 14,
-                                              ),
-                                              maxLines: 2,
-                                              overflow: TextOverflow.ellipsis,
-                                            ),
-                                          ),
-                                          const SizedBox(
-                                            width: 4,
-                                          ),
-                                          ElevatedButton(
-                                            onPressed: () {
-                                              GoRouter.of(context).push(
-                                                  "/guide",
-                                                  extra: ref
-                                                      .read(
-                                                          spotProvider.notifier)
-                                                      .state
-                                                      .values
-                                                      .elementAt(index));
-                                            },
-                                            child: const Text(
-                                              "Visit",
-                                            ),
-                                            style: ElevatedButton.styleFrom(
-                                              elevation: 0,
-                                              fixedSize: const Size(85, 30),
-                                              backgroundColor:
-                                                  AppColors().primary,
-                                              shape: RoundedRectangleBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(20),
-                                              ),
-                                            ),
-                                          )
-                                        ],
-                                      ),
-                                    );
-                                  }))
-                                ],
-                              ),
-                            ),
-                          ),
+                          );
+                        },
+                        error: (error, stackTrace) => const Center(
+                          child: Text("Error"),
                         ),
-                      ],
-                    );
-                  },
-                  error: (error, stackTrace) => const Center(
-                    child: Text("Error"),
+                        loading: () => const Center(
+                          child: CircularProgressIndicator(),
+                        ),
+                      ),
+                    ),
                   ),
-                  loading: () => const Center(
-                    child: CircularProgressIndicator(),
-                  ),
-                ),
+                ],
               ),
             );
           },
