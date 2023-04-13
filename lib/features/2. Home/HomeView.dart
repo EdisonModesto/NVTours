@@ -587,7 +587,7 @@ class Layer1 extends CustomPainter {
         textAlign: TextAlign.center);
 
     Paint paint0 = Paint()
-      ..color = values[0] ? Colors.redAccent : Colors.yellow
+      ..color = values[0] ? Colors.green : Colors.yellow
       ..style = PaintingStyle.fill
       ..strokeWidth = 2;
 
@@ -708,7 +708,7 @@ class Layer3 extends CustomPainter {
         textAlign: TextAlign.center);
 
     Paint paint2 = Paint()
-      ..color = values[2] ? Colors.redAccent : Colors.yellow
+      ..color = values[2] ? Colors.pink : Colors.yellow
       ..style = PaintingStyle.fill
       ..strokeWidth = 2;
 
@@ -765,7 +765,7 @@ class Layer4 extends CustomPainter {
         textAlign: TextAlign.center);
 
     Paint paint3 = Paint()
-      ..color = values[3] ? Colors.redAccent : Colors.yellow
+      ..color = values[3] ? Colors.blueAccent : Colors.yellow
       ..style = PaintingStyle.fill
       ..strokeWidth = 2;
 
@@ -823,7 +823,7 @@ class Layer5 extends CustomPainter {
         textDirection: TextDirection.ltr,
         textAlign: TextAlign.center);
     Paint paint4 = Paint()
-      ..color = values[4] ? Colors.redAccent : Colors.yellow
+      ..color = values[4] ? Colors.green : Colors.yellow
       ..style = PaintingStyle.fill
       ..strokeWidth = 2;
 
@@ -884,7 +884,7 @@ class Layer6 extends CustomPainter {
         textAlign: TextAlign.center);
 
     Paint paint5 = Paint()
-      ..color = values[5] ? Colors.redAccent : Colors.yellow
+      ..color = values[5] ? Colors.blueAccent : Colors.yellow
       ..style = PaintingStyle.fill
       ..strokeWidth = 2;
 
@@ -1000,7 +1000,7 @@ class Layer8 extends CustomPainter {
         textAlign: TextAlign.center);
 
     Paint paint7 = Paint()
-      ..color = values[7] ? Colors.redAccent : Colors.yellow
+      ..color = values[7] ? Colors.green : Colors.yellow
       ..style = PaintingStyle.fill
       ..strokeWidth = 2;
 
@@ -1062,7 +1062,7 @@ class Layer9 extends CustomPainter {
         textAlign: TextAlign.center);
 
     Paint paint8 = Paint()
-      ..color = values[8] ? Colors.redAccent : Colors.yellow
+      ..color = values[8] ? Colors.blueAccent : Colors.yellow
       ..style = PaintingStyle.fill
       ..strokeWidth = 2;
 
@@ -1120,7 +1120,7 @@ class Layer10 extends CustomPainter {
         textAlign: TextAlign.center);
 
     Paint paint9 = Paint()
-      ..color = values[9] ? Colors.redAccent : Colors.yellow
+      ..color = values[9] ? Colors.green : Colors.yellow
       ..style = PaintingStyle.fill
       ..strokeWidth = 2;
 
@@ -1235,7 +1235,7 @@ class Layer12 extends CustomPainter {
         textDirection: TextDirection.ltr,
         textAlign: TextAlign.center);
     Paint paint11 = Paint()
-      ..color = values[11] ? Colors.redAccent : Colors.yellow
+      ..color = values[11] ? Colors.pink : Colors.yellow
       ..style = PaintingStyle.fill
       ..strokeWidth = 2;
 
@@ -1294,7 +1294,7 @@ class Layer13 extends CustomPainter {
         textAlign: TextAlign.center);
 
     Paint paint12 = Paint()
-      ..color = values[12] ? Colors.redAccent : Colors.yellow
+      ..color = values[12] ? Colors.green : Colors.yellow
       ..style = PaintingStyle.fill
       ..strokeWidth = 2;
 
@@ -1351,7 +1351,7 @@ class Layer14 extends CustomPainter {
         textAlign: TextAlign.center);
 
     Paint paint13 = Paint()
-      ..color = values[13] ? Colors.redAccent : Colors.yellow
+      ..color = values[13] ? Colors.pink : Colors.yellow
       ..style = PaintingStyle.fill
       ..strokeWidth = 2;
 
@@ -1408,7 +1408,7 @@ class Layer15 extends CustomPainter {
         textAlign: TextAlign.center);
 
     Paint paint14 = Paint()
-      ..color = values[14] ? Colors.redAccent : Colors.yellow
+      ..color = values[14] ? Colors.blueAccent : Colors.yellow
       ..style = PaintingStyle.fill
       ..strokeWidth = 2;
 

@@ -7,3 +7,4 @@ class AppColors{
   Color grey = const Color(0xff414141);
   Color cardColor = const Color(0xffE2E2E2);
 }
+

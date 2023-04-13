@@ -291,7 +291,7 @@ class _MoreViewState extends ConsumerState<MoreView> {
                                                 bottom: 15),
                                             child: Row(
                                               mainAxisAlignment:
-                                                  MainAxisAlignment
+                                                MainAxisAlignment
                                                       .spaceBetween,
                                               children: [
                                                 Align(
@@ -308,8 +308,7 @@ class _MoreViewState extends ConsumerState<MoreView> {
                                                 IconButton(
                                                     onPressed: () async {
                                                       // start navigation
-                                                      await _navigationWithMapboxPlugin
-                                                          .startNavigation(
+                                                      await _navigationWithMapboxPlugin.startNavigation(
                                                               // origin refers to the user's starting point at the time of starting the navigation
                                                               origin: WayPoint(
                                                                   latitude: snapshot
@@ -345,7 +344,8 @@ class _MoreViewState extends ConsumerState<MoreView> {
                                                               // optional, default: metric
                                                               voiceUnits: 'imperial',
                                                               // optional, message that will be displayed when starting the navigation map ONLY ANDROID
-                                                              msg: 'Path Found!');
+                                                              msg: 'Path Found!'
+                                                      );
                                                     },
                                                     icon: Icon(
                                                       Icons.navigation,
@@ -607,8 +607,7 @@ class _MoreViewState extends ConsumerState<MoreView> {
                                 borderRadius: BorderRadius.circular(8),
                               ),
                               fixedSize: Size(1000, 50),
-                              padding: const EdgeInsets.only(
-                                  left: 20, right: 20, top: 10, bottom: 10),
+                              padding: const EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 10),
                             ),
                           ),
                         ),
