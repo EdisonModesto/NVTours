@@ -173,7 +173,7 @@ class _MoreViewState extends ConsumerState<MoreView> {
                               SizedBox(
                                 height: 300,
                                 child: MasonryGridView.count(
-                                  itemCount: widget.spot.pictures.length,
+                                  itemCount: widget.spot.thumbnails.length,
                                   crossAxisCount: 2,
                                   mainAxisSpacing: 2,
                                   crossAxisSpacing: 2,
@@ -207,7 +207,7 @@ class _MoreViewState extends ConsumerState<MoreView> {
                                           color: AppColors().primary,
                                           height: Random().nextInt(150) + 100.5,
                                           child: Image.network(
-                                            widget.spot.pictures[index],
+                                            widget.spot.thumbnails[index],
                                             fit: BoxFit.cover,
                                           ),
                                         ),

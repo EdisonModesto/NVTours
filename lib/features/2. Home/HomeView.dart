@@ -1,4 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:field_suggestion/field_suggestion.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -28,13 +29,44 @@ class HomeView extends ConsumerStatefulWidget {
 
 class _HomeViewState extends ConsumerState<HomeView> {
   TextEditingController _searchCtrl = TextEditingController();
-
+  // A box controller for default and local usable FieldSuggestion.
+  final boxController = BoxController();
   //var currently = "";
+
+
+  List<String> suggestions = [
+    "Waterfalls",
+    "Church",
+    "Mountains",
+    "Resorts",
+    "Sea of Clouds",
+    "Waterfalls",
+    "Caves",
+    "Church",
+    "Mountains",
+    "Caves",
+    "Church",
+    "Mountains",
+    "Resorts",
+    "Sea of Clouds",
+    "Hotels",
+    "Restaurants",
+
+  ];
 
   @override
   void initState() {
+    suggestions = suggestions.toSet().toList();
     super.initState();
   }
+
+/*  @override
+  void dispose() {
+    _searchCtrl.dispose();
+    boxController.close?.call();
+    super.dispose();
+  }*/
+
 
   @override
   Widget build(BuildContext context) {
@@ -57,6 +89,9 @@ class _HomeViewState extends ConsumerState<HomeView> {
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage(
+                      ref.read(spotProvider.notifier).state["municipality"] == null
+                          ? "assets/images/municipalities/main.jpg"
+                          :
                     "assets/images/municipalities/${ref.read(spotProvider.notifier).state["municipality"].toString().toLowerCase()}.jpg",
                   ),
                   fit: BoxFit.cover,
@@ -79,8 +114,65 @@ class _HomeViewState extends ConsumerState<HomeView> {
                           return Column(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-
                               Container(
+                                decoration: BoxDecoration(
+                                    color: AppColors().cardColor,
+                                    borderRadius: const BorderRadius.all(Radius.circular(50))),
+                                      child: FieldSuggestion<String>(
+                                        inputDecoration: const InputDecoration(
+                                          //contentPadding: EdgeInsets.only(top: 5, bottom: 5),
+                                          hintText: "Search",
+                                          border: InputBorder.none,
+                                          prefixIcon: Icon(Icons.search),
+                                        ),
+                                        textController: _searchCtrl,
+                                        suggestions: suggestions,
+                                        boxController: boxController,
+                                        search: (item, input) {
+                                          // Disable box, if item selected.
+                                          if (item == input) return false;
+
+                                          return item.toString().toLowerCase().contains(input.toLowerCase());
+                                        },
+                                        separatorBuilder: (_, __) => const Divider(),
+                                        itemBuilder: (BuildContext context, int index) {
+                                          return GestureDetector(
+                                            onTap: () {
+                                              setState(() {
+                                                _searchCtrl.text = suggestions[index];
+                                              });
+                                              showMaterialModalBottomSheet(
+                                                  context: context,
+                                                  shape: const RoundedRectangleBorder(
+                                                    borderRadius: BorderRadius.only(
+                                                      topLeft: Radius.circular(20),
+                                                      topRight: Radius.circular(20),
+                                                    ),
+                                                  ),
+                                                  builder: (context) {
+                                                    return ResultsSheet(
+                                                      query: _searchCtrl.text,
+                                                      spot: spot,
+                                                    );
+                                                  });
+
+                                              _searchCtrl.selection = TextSelection.fromPosition(
+                                                TextPosition(offset: _searchCtrl.text.length),
+                                              );
+                                              boxController.close?.call();
+                                            },
+                                            child: Card(
+                                              child: ListTile(
+                                                title: Text(suggestions[index]),
+                                                //subtitle: Text(suggestions[index]),
+                                              ),
+                                            ),
+                                          );
+                                        },
+                                      ),
+                                    ),
+
+                         /*     Container(
                                   decoration: BoxDecoration(
                                       color: AppColors().cardColor,
                                       borderRadius: const BorderRadius.all(
@@ -112,7 +204,7 @@ class _HomeViewState extends ConsumerState<HomeView> {
                                       border: InputBorder.none,
                                       prefixIcon: Icon(Icons.search),
                                     ),
-                                  )),
+                                  )),*/
                               Center(
                                   child: SizedBox(
                                 height: 300,
@@ -417,6 +509,11 @@ class _HomeViewState extends ConsumerState<HomeView> {
                                   width: 1000,
                                   decoration: BoxDecoration(
                                     color: AppColors().cardColor,
+                                    image: const DecorationImage(
+                                      image: AssetImage("assets/images/boxBg.jpg"),
+                                      fit: BoxFit.cover,
+                                      opacity: 0.2,
+                                    ),
                                     borderRadius: BorderRadius.circular(12),
                                   ),
                                   padding: const EdgeInsets.only(
@@ -427,9 +524,25 @@ class _HomeViewState extends ConsumerState<HomeView> {
                                       crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
                                         Text(
+                                          "Nueva Vizcaya",
+                                          style: GoogleFonts.poppins(
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                        const SizedBox(height: 5),
+                                        Text(
+                                          """Nueva Vizcaya is a landlocked province in the Philippines located in the Cagayan Valley region of Luzon. Its capital is Bayombong. It is bordered by Benguet to the west, Ifugao to the north, Isabela to the northeast, Quirino to the east, Aurora to the southeast, Nueva Ecija to the south, and Pangasinan to the southwest. Quirino Province was created from Nueva Vizcaya in 1966. The name Nueva Vizcaya is derived from the name of the province of Biscay (called Vizcaya in Spanish and Bizkaia in Basque) during the Spanish colonial period. This can be seen in the right part of the seal, a representation of the heraldic of Vizcaya in Spain.""",
+                                          style: GoogleFonts.poppins(
+                                            fontSize: 12,
+                                          ),
+                                          textAlign: TextAlign.justify,
+                                        ),
+                                        const SizedBox(height: 10),
+                                        Text(
                                           ref.read(spotProvider.notifier)
-                                                      .state["municipality"] ==
-                                                  null
+                                              .state["municipality"] ==
+                                              null
                                               ? "Select a Municipality"
                                               : "Municipality of ${ref.read(spotProvider.notifier).state["municipality"]}",
                                           style: GoogleFonts.poppins(
@@ -439,27 +552,17 @@ class _HomeViewState extends ConsumerState<HomeView> {
                                         ),
                                         const SizedBox(height: 5),
                                         Text(
-                                          ref
-                                                      .read(spotProvider.notifier)
-                                                      .state?["municipality"] ==
-                                                  null
-                                              ? "Select a Municipality to see its description"
-                                              : data
-                                                  .municipalities[
-                                                      "${ref.read(spotProvider.notifier).state["municipality"]}"]!
-                                                  .description,
+                                          ref.read(spotProvider.notifier)
+                                              .state["municipality"] ==
+                                              null
+                                              ? ""
+                                              : data.municipalities[ref.read(spotProvider.notifier).state["municipality"]]!.description,
                                           style: GoogleFonts.poppins(
-                                            fontSize: 14,
+                                            fontSize: 12,
                                           ),
+                                          textAlign: TextAlign.justify,
                                         ),
-                                        const SizedBox(height: 10),
-                                        Text(
-                                          "Tourist Spots",
-                                          style: GoogleFonts.poppins(
-                                            fontSize: 20,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
+
                                         const SizedBox(height: 10),
                                         Column(
                                             children: List.generate(
@@ -473,7 +576,7 @@ class _HomeViewState extends ConsumerState<HomeView> {
                                           return Container(
                                             height: 50,
                                             width: 1000,
-                                            margin: EdgeInsets.only(bottom: 10),
+                                            margin: const EdgeInsets.only(bottom: 10),
                                             decoration: BoxDecoration(
                                               color: Colors.white,
                                               borderRadius: BorderRadius.circular(10),

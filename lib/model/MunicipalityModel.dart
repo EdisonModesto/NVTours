@@ -31,6 +31,7 @@ class Municipality {
 class Spot {
   final String name;
   final List<String> pictures;
+  final List<String> thumbnails;
   final List<String> guides;
   final List<String> eateries;
   final List<String> itineraries;
@@ -46,6 +47,7 @@ class Spot {
   Spot({
     required this.name,
     required this.pictures,
+    required this.thumbnails,
     required this.guides,
     required this.eateries,
     required this.itineraries,
@@ -62,6 +64,7 @@ class Spot {
     return Spot(
       name: name,
       pictures: List<String>.from(json['Pictures']),
+      thumbnails: List<String>.from(json['Thumbnails']),
       guides: List<String>.from(json['Guides']),
       eateries: List<String>.from(json['Eateries']),
       itineraries: List<String>.from(json['itinreraries']),

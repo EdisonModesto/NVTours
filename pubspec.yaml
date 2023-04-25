@@ -56,6 +56,7 @@ dependencies:
       url: https://github.com/followthemoney1/modal_bottom_sheet.git
       ref: main
       path: modal_bottom_sheet
+  field_suggestion: ^0.2.5
 
 dev_dependencies:
   flutter_test:

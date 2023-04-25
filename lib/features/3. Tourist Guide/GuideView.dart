@@ -119,7 +119,7 @@ class _GuideViewState extends ConsumerState<GuideView> {
                                       flex: 2,
                                       child: Center(
                                         child: Image.network(
-                                          widget.spot.pictures[0],
+                                          widget.spot.thumbnails[0],
                                           fit: BoxFit.cover,
                                           width: 1000,
                                           height: 1000,
