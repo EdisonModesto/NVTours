@@ -125,6 +125,7 @@ class _HomeViewState extends ConsumerState<HomeView> {
                                           border: InputBorder.none,
                                           prefixIcon: Icon(Icons.search),
                                         ),
+                                        maxLines: 1,
                                         textController: _searchCtrl,
                                         suggestions: suggestions,
                                         boxController: boxController,
@@ -523,22 +524,37 @@ class _HomeViewState extends ConsumerState<HomeView> {
                                       mainAxisAlignment: MainAxisAlignment.start,
                                       crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
-                                        Text(
-                                          "Nueva Vizcaya",
-                                          style: GoogleFonts.poppins(
-                                            fontSize: 20,
-                                            fontWeight: FontWeight.bold,
+
+                                        Visibility(
+                                          visible: ref.read(spotProvider.notifier).state["municipality"] == null,
+                                          child: Text(
+                                            "Nueva Vizcaya",
+                                            style: GoogleFonts.poppins(
+                                              fontSize: 20,
+                                              fontWeight: FontWeight.bold,
+                                            ),
                                           ),
                                         ),
-                                        const SizedBox(height: 5),
-                                        Text(
-                                          """Nueva Vizcaya is a landlocked province in the Philippines located in the Cagayan Valley region of Luzon. Its capital is Bayombong. It is bordered by Benguet to the west, Ifugao to the north, Isabela to the northeast, Quirino to the east, Aurora to the southeast, Nueva Ecija to the south, and Pangasinan to the southwest. Quirino Province was created from Nueva Vizcaya in 1966. The name Nueva Vizcaya is derived from the name of the province of Biscay (called Vizcaya in Spanish and Bizkaia in Basque) during the Spanish colonial period. This can be seen in the right part of the seal, a representation of the heraldic of Vizcaya in Spain.""",
-                                          style: GoogleFonts.poppins(
-                                            fontSize: 12,
-                                          ),
-                                          textAlign: TextAlign.justify,
+                                        Visibility(
+                                            visible: ref.read(spotProvider.notifier).state["municipality"] == null,
+
+                                            child: const SizedBox(height: 5)
                                         ),
-                                        const SizedBox(height: 10),
+                                        Visibility(
+                                          visible: ref.read(spotProvider.notifier).state["municipality"] == null,
+                                          child: Text(
+                                            """Nueva Vizcaya is a landlocked province in the Philippines located in the Cagayan Valley region of Luzon. Its capital is Bayombong. It is bordered by Benguet to the west, Ifugao to the north, Isabela to the northeast, Quirino to the east, Aurora to the southeast, Nueva Ecija to the south, and Pangasinan to the southwest. Quirino Province was created from Nueva Vizcaya in 1966. The name Nueva Vizcaya is derived from the name of the province of Biscay (called Vizcaya in Spanish and Bizkaia in Basque) during the Spanish colonial period. This can be seen in the right part of the seal, a representation of the heraldic of Vizcaya in Spain.""",
+                                            style: GoogleFonts.poppins(
+                                              fontSize: 12,
+                                            ),
+                                            textAlign: TextAlign.justify,
+                                          ),
+                                        ),
+                                        Visibility(
+                                            visible: ref.read(spotProvider.notifier).state["municipality"] == null,
+
+                                            child: const SizedBox(height: 10)
+                                        ),
                                         Text(
                                           ref.read(spotProvider.notifier)
                                               .state["municipality"] ==

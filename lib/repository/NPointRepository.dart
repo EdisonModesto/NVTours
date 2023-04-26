@@ -7,7 +7,7 @@ import '../model/MunicipalityModel.dart';
 
 class NPointRepository{
   Future<MunicipalitiesModel> makeApiCall() async {
-    var response = await http.get(Uri.parse('https://api.npoint.io/624fab542faa2bafcf59'));
+    var response = await http.get(Uri.parse('https://api.npoint.io/c7f0329eaededd18a57a'));
     if (response.statusCode == 200) {
       //print(response.body);
       final jsonData = jsonDecode(response.body);
