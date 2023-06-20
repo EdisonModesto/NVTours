@@ -1,16 +1,36 @@
-# nvtours
+<img src="/assets/images/NVToursLogo.png" height="200">
 
-A new Flutter project.
+# NVTours Mobile
 
-## Getting Started
+A tour app for the Province of Nueva Vizcaya. It has information about the best places to eat and stay, fun activities and more.
 
-This project is a starting point for a Flutter application.
+## Screenshots
 
-A few resources to get you started if this is your first Flutter project:
+<img src="/assets/images/screenshot.png" height="450">
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+## 🧐 Features
+
+Here're some of the project's best features:
+
+- Collection of Tourist Spots in Nueva Vizcaya in different municipalities
+- Show Nearby Restaurants, Hotels, and Tipid Tips
+- Built-in Map with Navigation using the Mapbox API
+- Daily Articles
+- Daily Trivia
+
+
+
+## 💻 Built with
+
+Technologies used in the project:
+
+*   Flutter
+*   Firebase
+*   NPoint
+*   Mapbox API
+
+
+
+## Developed by: Edison Modesto

@@ -476,7 +476,7 @@ class _MoreViewState extends ConsumerState<MoreView> {
                                         textColor: AppColors().primary,
                                         childrenPadding: EdgeInsets.zero,
                                         children: List.generate(
-                                            widget.spot.itineraries.length,
+                                            widget.spot.banks.length,
                                                 (index) {
                                               return Padding(
                                                 padding: const EdgeInsets.only(
@@ -485,15 +485,13 @@ class _MoreViewState extends ConsumerState<MoreView> {
                                                     bottom: 15),
                                                 child: Row(
                                                   mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
+                                                  MainAxisAlignment.spaceBetween,
                                                   children: [
                                                     Align(
                                                       alignment:
                                                       Alignment.centerLeft,
                                                       child: Text(
-                                                        widget.spot.banks[index]
-                                                            .split(",")[0],
+                                                        widget.spot.banks[index].split(",")[0],
                                                         style: GoogleFonts.poppins(
                                                           fontSize: 16,
                                                         ),

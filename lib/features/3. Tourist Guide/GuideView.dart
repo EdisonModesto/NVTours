@@ -125,7 +125,7 @@ class _GuideViewState extends ConsumerState<GuideView> {
                                           height: 1000,
                                         ),
                                       ),
-                                    ),
+                                      ),
                                     Expanded(
                                       flex: 1,
                                       child: Container(

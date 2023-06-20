@@ -578,6 +578,22 @@ class _HomeViewState extends ConsumerState<HomeView> {
                                           ),
                                           textAlign: TextAlign.justify,
                                         ),
+                                        Visibility(
+                                            visible: ref.read(spotProvider.notifier).state["municipality"] != null,
+
+                                            child: const SizedBox(height: 10)
+                                        ),
+                                        Visibility(
+                                          visible: ref.read(spotProvider.notifier).state["municipality"] != null,
+                                          child: Text(
+                                            "Tourist Spots",
+                                            style: GoogleFonts.poppins(
+                                              fontSize: 20,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                            textAlign: TextAlign.justify,
+                                          ),
+                                        ),
 
                                         const SizedBox(height: 10),
                                         Column(
